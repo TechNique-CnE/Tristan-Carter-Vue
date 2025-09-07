@@ -20,7 +20,7 @@ const projectData = jsonData.projects
         :link2="projectData[index].link2"
       ></HomeProjectCard>
     </div>
-    <router-link to="/projects">See All Projects -></router-link>
+    <router-link to="/projects" class="int-link">See All Projects -></router-link>
   </section>
 </template>
 
@@ -38,8 +38,46 @@ const projectData = jsonData.projects
   #home-projects-container {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    gap: var(--md-gap);
+    flex-wrap: no-wrap;
+    gap: var(--xl-gap);
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 20%,
+      black 80%,
+      black 20%,
+      transparent
+    );
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-composite: destination-in;
+    -webkit-mask-size: 100% 100%;
+
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 20%,
+      black 80%,
+      black 20%,
+      transparent
+    );
+    mask-repeat: no-repeat;
+    mask-composite: intersect;
+    mask-size: 100% 100%;
+  }
+  #home-projects-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  a.int-link {
+    margin: var(--sm-gap) var(--md-gap) 0 auto;
+    display: block;
+    width: 100%;
+    text-align: right;
+    color: var(--primary);
   }
 }
 </style>

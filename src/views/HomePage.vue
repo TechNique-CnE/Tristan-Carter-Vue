@@ -23,7 +23,7 @@ section {
   width: var(--content-width);
   min-height: 75dvh;
   margin: var(--lg-gap) auto;
-  padding: var(--md-gap);
+  padding: var(--md-gap) var(--lg-gap);
   backdrop-filter: blur(10px);
   border-radius: 25px;
 }

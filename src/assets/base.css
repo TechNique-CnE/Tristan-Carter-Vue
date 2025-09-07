@@ -1,7 +1,7 @@
 :root {
   --primary: #08f508;
   --primary2: #4a882d;
-  --bg-secondary: #275810;
+  --primary3: #2e6913;
   --bg: black;
   --bg2: rgba(128, 128, 128, 0.2);
   --content-bg: rgba(0, 0, 0, 0.8);
@@ -28,8 +28,8 @@
   --transition: 0.2s ease-out;
   --header-font: 'Times New Roman';
   --content-font: 'Helvetica';
-  --fs-lg: 32px;
-  --fs-md: 26px;
+  --fs-lg: 34px;
+  --fs-md: 28px;
   --fs-sm: 20px;
 }
 
