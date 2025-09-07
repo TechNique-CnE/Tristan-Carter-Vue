@@ -1,13 +1,14 @@
 :root {
   --primary: #08f508;
-  --bg-primary: #4a882d;
+  --primary2: #4a882d;
   --bg-secondary: #275810;
   --bg: black;
-  --bg2: grey;
+  --bg2: rgba(128, 128, 128, 0.2);
   --content-bg: rgba(0, 0, 0, 0.8);
   --txt-color: white;
   --primary-shadow: 0 0 8px var(--primary);
   --primary-shadow2: 0 0 12px var(--primary);
+  --primary-shadow3: 0 0 16px var(--primary);
   /* --black-shadow: 0 0 8px #000000; */
   /* --black-shadow: 0 0 12px #000000; */
   /* --heading-color: ; */
@@ -46,11 +47,20 @@ body {
   background-color: var(--bg);
   color: var(--txt-color);
   font-size: var(--fs-sm);
+  z-index: 1;
 }
 
 h2 {
   font-size: var(--fs-lg);
+  color: var(--primary);
 }
 h3 {
   font-size: var(--fs-md);
+  color: var(--primary2);
+}
+hr.divider {
+  width: 100%;
+  height: 20dvh;
+  min-height: 125px;
+  border: none;
 }

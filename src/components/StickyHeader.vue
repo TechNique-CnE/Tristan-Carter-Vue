@@ -26,7 +26,9 @@ import { RouterLink } from 'vue-router'
 header {
   width: 100%;
   background-color: var(--content-bg);
-  padding: var(--md-gap);
+  padding: var(--sm-gap);
+  backdrop-filter: blur(10px);
+  z-index: 10;
   position: sticky;
   top: 0;
   left: 0;
@@ -40,11 +42,16 @@ header {
     gap: var(--md-gap);
 
     a img {
-      width: 75px;
       height: 75px;
+      aspect-ratio: 1/1;
       border-radius: 50%;
       border: 1px solid white;
-      box-shadow: 0 0 16px var(--primary);
+      transition: var(--transition);
+      box-shadow: var(--primary-shadow);
+    }
+    a img:hover {
+      box-shadow: var(--primary-shadow2);
+      scale: 1.05;
     }
 
     nav {
@@ -59,7 +66,7 @@ header {
       button {
         font-size: var(--fs-sm);
         list-style: none;
-        margin: var(--sm-gap);
+        margin: 0 var(--sm-gap) var(--sm-gap) 0;
         color: var(--txt-color);
         text-decoration: none;
         transition: var(--transition);
@@ -73,6 +80,7 @@ header {
       button:hover {
         border-bottom: 2px solid var(--primary);
         color: var(--primary);
+        scale: 1.05;
       }
     }
   }
