@@ -15,7 +15,7 @@ defineProps(['id', 'title', 'image', 'smallDesc', 'about', 'link1', 'link2'])
 </template>
 
 <style scoped>
-@import '../assets/base.css';
+/* @import '../assets/base.css'; */
 .project-card {
   min-width: 50%;
   padding-top: var(--md-gap);

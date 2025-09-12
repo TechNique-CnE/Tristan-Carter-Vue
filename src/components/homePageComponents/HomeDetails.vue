@@ -20,7 +20,6 @@
 </template>
 
 <style scoped>
-@import '../assets/base.css';
 #home {
   display: flex;
   flex-direction: row;

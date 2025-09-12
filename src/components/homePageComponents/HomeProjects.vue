@@ -1,6 +1,6 @@
 <script setup>
 import HomeProjectCard from './HomeProjectCard.vue'
-import jsonData from '../assets/projects.json'
+import jsonData from '../../assets/projects.json'
 const projectData = jsonData.projects
 </script>
 
@@ -41,7 +41,7 @@ const projectData = jsonData.projects
     flex-wrap: no-wrap;
     gap: var(--xl-gap);
     overflow-x: scroll;
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
     scrollbar-width: none;
     -ms-overflow-style: none;
     -webkit-mask-image: linear-gradient(
