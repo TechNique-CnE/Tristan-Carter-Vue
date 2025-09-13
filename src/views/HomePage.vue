@@ -25,7 +25,7 @@ main {
 }
 section {
   width: var(--content-width);
-  min-height: 75dvh;
+  min-height: 80dvh;
   margin: var(--lg-gap) auto;
   padding: var(--md-gap) var(--lg-gap);
   backdrop-filter: blur(10px);

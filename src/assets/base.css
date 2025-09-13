@@ -16,7 +16,7 @@
   /* --gradient-secondary:  */
   /* --shadow: ; */
   /* --shadow-heavy: ; */
-  /* --border: ; */
+  --border: 2px solid var(--primary);
   /* --border2: ; */
   --content-width: 90%;
   --lh: 1.2;
@@ -48,6 +48,7 @@ body {
   color: var(--txt-color);
   font-size: var(--fs-sm);
   z-index: 1;
+  scroll-behavior: smooth;
 }
 
 h2 {

@@ -15,12 +15,12 @@ defineProps(['id', 'title', 'image', 'smallDesc', 'about', 'link1', 'link2'])
 </template>
 
 <style scoped>
-/* @import '../assets/base.css'; */
 .project-card {
-  min-width: 50%;
+  min-width: 65%;
   padding-top: var(--md-gap);
   border: 2px solid var(--primary);
   border-radius: 15px;
+  scroll-snap-align: center;
 
   h3 {
     text-align: center;

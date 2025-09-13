@@ -1,5 +1,4 @@
 <script setup>
-// import { ref } from 'vue'
 import { RouterLink } from 'vue-router'
 </script>
 
@@ -25,13 +24,10 @@ import { RouterLink } from 'vue-router'
 
 header {
   width: 100%;
-  background-color: var(--content-bg);
+  background-color: var(--bg2);
   padding: var(--sm-gap);
   backdrop-filter: blur(10px);
   z-index: 10;
-  position: sticky;
-  top: 0;
-  left: 0;
 
   .container {
     width: var(--content-width);

@@ -1,10 +1,10 @@
 <script setup>
 import { RouterView } from 'vue-router'
-import StickyHeader from './components/StickyHeader.vue'
+import SlimHeader from './components/SlimHeader.vue'
 </script>
 
 <template>
-  <StickyHeader />
+  <SlimHeader />
 
   <RouterView />
 </template>
