@@ -2,30 +2,53 @@
 import HomeProjectCard from './HomeProjectCard.vue'
 import jsonData from '../../assets/projects.json'
 const projectData = jsonData.projects
-import { useTemplateRef } from 'vue'
+import { ref, computed } from 'vue'
 
-const track = useTemplateRef('track')
-const scrollAmount = 3
+const currentIndex = ref(0)
+const cards = ref([])
+const maxIndex = computed(() => projectData.length - 1)
+
+const scrollToCard = (index) => {
+  animateScrollToCard(index, 600)
+}
+
+function animateScrollToCard(index, duration = 600) {
+  const cardEl = cards.value[index]?.$el
+  const trackEl = document.querySelector('.carousel-track')
+  if (!cardEl || !trackEl) return
+
+  const cardRect = cardEl.getBoundingClientRect()
+  const trackRect = trackEl.getBoundingClientRect()
+
+  const currentScroll = trackEl.scrollLeft
+  const trackOffset = cardRect.left - trackRect.left
+  const targetScroll = currentScroll + trackOffset - trackRect.width / 2 + cardRect.width / 2
+
+  const startTime = performance.now()
+
+  function animate(time) {
+    const elapsed = time - startTime
+    const progress = Math.min(elapsed / duration, 1)
+    // Ease in-out cubic
+    const ease =
+      progress < 0.5 ? 4 * progress * progress * progress : 1 - Math.pow(-2 * progress + 2, 3) / 2
+    trackEl.scrollLeft = currentScroll + (targetScroll - currentScroll) * ease
+    if (progress < 1) {
+      requestAnimationFrame(animate)
+    }
+  }
+
+  requestAnimationFrame(animate)
+}
 
 const previousSlide = () => {
-  console.log(track.value.scrollLeft)
-  console.log(track.value.scrollWidth)
-  // console.log(track.value.scrollBy(scrollAmount))
-  if (track.value) {
-    track.value.scrollBy({
-      left: -scrollAmount,
-      behavior: 'smooth',
-    })
-  }
+  currentIndex.value = currentIndex.value > 0 ? currentIndex.value - 1 : maxIndex.value
+  scrollToCard(currentIndex.value)
 }
 
 const nextSlide = () => {
-  if (track.value) {
-    track.value.scrollBy({
-      left: scrollAmount,
-      behavior: 'smooth',
-    })
-  }
+  currentIndex.value = currentIndex.value < maxIndex.value ? currentIndex.value + 1 : 0
+  scrollToCard(currentIndex.value)
 }
 </script>
 
@@ -33,21 +56,24 @@ const nextSlide = () => {
   <section id="home-projects">
     <h2>Featured Projects</h2>
     <div class="carousel-container">
-      <button @click="previousSlide">L</button>
-      <div id="home-projects-container" ref="track">
-        <HomeProjectCard
-          v-for="(items, index) in projectData"
-          :key="items"
-          :id="projectData[index].id"
-          :title="projectData[index].title"
-          :image="projectData[index].image"
-          :smallDesc="projectData[index].smallDesc"
-          :about="projectData[index].about"
-          :link1="projectData[index].link1"
-          :link2="projectData[index].link2"
-        ></HomeProjectCard>
+      <button type="button" @click="previousSlide">L</button>
+      <div class="carousel-track">
+        <div class="carousel">
+          <HomeProjectCard
+            v-for="(items, index) in projectData"
+            :key="items.id"
+            :ref="(el) => (cards[index] = el)"
+            :id="items.id"
+            :title="items.title"
+            :image="items.image"
+            :smallDesc="items.smallDesc"
+            :about="items.about"
+            :link1="items.link1"
+            :link2="items.link2"
+          ></HomeProjectCard>
+        </div>
       </div>
-      <button @click="nextSlide">R</button>
+      <button type="button" @click="nextSlide">R</button>
     </div>
     <router-link to="/projects" class="int-link">See All Projects -></router-link>
   </section>
@@ -76,17 +102,23 @@ const nextSlide = () => {
       background-color: transparent;
       color: var(--primary);
       font-weight: bold;
+      cursor: pointer;
+      transition: var(--transition);
     }
-    #home-projects-container {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: no-wrap;
-      gap: var(--xl-gap);
-      overflow-x: scroll;
-      scroll-behavior: smooth;
-      scroll-snap-type: x mandatory;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
+    button:hover {
+      scale: 1.05;
+      box-shadow: var(--primary-shadow);
+    }
+    button:disabled {
+      color: var(--primary2);
+      box-shadow: none;
+      scale: none;
+      border-color: var(--primary2);
+      cursor: not-allowed;
+    }
+    .carousel-track {
+      overflow-x: auto;
+      padding: 0 20%;
       -webkit-mask-image: linear-gradient(
         to right,
         transparent,
@@ -98,7 +130,6 @@ const nextSlide = () => {
       -webkit-mask-composite: destination-in;
       -webkit-mask-repeat: no-repeat;
       -webkit-mask-size: 100% 100%;
-
       mask-image: linear-gradient(
         to right,
         transparent,
@@ -110,11 +141,19 @@ const nextSlide = () => {
       mask-repeat: no-repeat;
       mask-composite: intersect;
       mask-size: 100% 100%;
+
+      .carousel {
+        width: max-content;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: var(--xl-gap);
+        scroll-snap-type: x mandatory;
+      }
     }
-    #home-projects-container::-webkit-scrollbar {
+    .carousel-track::-webkit-scrollbar {
       display: none;
     }
-    transition: var(--transition);
   }
 
   a.int-link {

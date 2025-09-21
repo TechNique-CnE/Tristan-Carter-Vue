@@ -16,11 +16,12 @@ defineProps(['id', 'title', 'image', 'smallDesc', 'about', 'link1', 'link2'])
 
 <style scoped>
 .project-card {
-  min-width: 65%;
+  width: 65%;
+  max-width: 480px;
+  max-width: 580px;
   padding-top: var(--md-gap);
   border: 2px solid var(--primary);
   border-radius: 15px;
-  scroll-snap-align: center;
 
   h3 {
     text-align: center;
@@ -49,12 +50,5 @@ defineProps(['id', 'title', 'image', 'smallDesc', 'about', 'link1', 'link2'])
       color: var(--primary3);
     }
   }
-}
-
-.project-card:nth-child(1) {
-  margin-left: 18%;
-}
-.project-card:nth-last-child(1) {
-  margin-right: 18%;
 }
 </style>
