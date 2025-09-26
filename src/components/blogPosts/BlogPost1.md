@@ -1,22 +1,25 @@
 ---
-title: Hello World1
+title: The Traveling Salesman Problem
 date: 2025-09-25
 ---
 
-# Hello World
+# The Traveling Salesman Problem
 
-## Second heading
+## What is the TSP?
 
-### Third Heading
+short summary about the TSP and some links to some references. maybe import superscript for footnotes. 4-5 sentence summary and add table of contents possibly
 
----
+## There's math involved?
 
-This is a markdown blog post. You can write **bold**, `code`, lists, etc.
+## How long has this problem Plagued us?
 
-1. first
-2. second
-3. third
+## What makes it Impossible?
 
-- item
-- item
-- item
+## Why is this Important?
+
+- It is important because the TSP can show up in many different forms.
+- It is an impossible task that industry leaders are still actively working on solving this problem.
+
+## My Thoughts
+
+- Amazon experience running routes

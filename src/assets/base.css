@@ -5,7 +5,7 @@
   --bg: black;
   --bg2: rgba(128, 128, 128, 0.2);
   --content-bg: rgba(0, 0, 0, 0.8);
-  --txt-color: white;
+  --text-color: white;
   --primary-shadow: 0 0 8px var(--primary);
   --primary-shadow2: 0 0 12px var(--primary);
   --primary-shadow3: 0 0 16px var(--primary);
@@ -26,7 +26,7 @@
   --lg-gap: 40px;
   --xl-gap: 60px;
   --transition: 0.2s ease-out;
-  --header-font: 'Times New Roman';
+  --header-font: 'Verdana';
   --content-font: 'Helvetica';
   --fs-lg: 34px;
   --fs-md: 28px;
@@ -45,17 +45,31 @@
 
 body {
   background-color: var(--bg);
-  color: var(--txt-color);
+  color: var(--text-color);
   font-size: var(--fs-sm);
   z-index: 1;
   scroll-behavior: smooth;
 }
-
+main {
+  width: 100%;
+}
+section {
+  width: var(--content-width);
+  min-height: 80dvh;
+  margin: var(--lg-gap) auto;
+  padding: var(--md-gap) var(--lg-gap);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+}
 h2 {
+  font-family: var(--header-font);
   font-size: var(--fs-lg);
   color: var(--primary);
+  text-align: center;
+  padding-bottom: var(--md-gap);
 }
 h3 {
+  font-family: var(--header-font);
   font-size: var(--fs-md);
   color: var(--primary2);
 }

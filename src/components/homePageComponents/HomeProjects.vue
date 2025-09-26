@@ -2,11 +2,12 @@
 import HomeProjectCard from './HomeProjectCard.vue'
 import jsonData from '../../assets/projects.json'
 const projectData = jsonData.projects
-import { ref, computed } from 'vue'
+const featuredProjectData = projectData.filter((project) => project.featured)
 
+import { ref, computed } from 'vue'
 const currentIndex = ref(0)
 const cards = ref([])
-const maxIndex = computed(() => projectData.length - 1)
+const maxIndex = computed(() => featuredProjectData.length - 1)
 
 const scrollToCard = (index) => {
   animateScrollToCard(index, 600)
@@ -56,24 +57,25 @@ const nextSlide = () => {
   <section id="home-projects">
     <h2>Featured Projects</h2>
     <div class="carousel-container">
-      <button type="button" @click="previousSlide">L</button>
+      <button type="button" @click="previousSlide" :disabled="currentIndex == 0">L</button>
       <div class="carousel-track">
         <div class="carousel">
-          <HomeProjectCard
-            v-for="(items, index) in projectData"
-            :key="items.id"
-            :ref="(el) => (cards[index] = el)"
-            :id="items.id"
-            :title="items.title"
-            :image="items.image"
-            :smallDesc="items.smallDesc"
-            :about="items.about"
-            :link1="items.link1"
-            :link2="items.link2"
-          ></HomeProjectCard>
+          <div v-for="(projects, index) in featuredProjectData" :key="projects.id">
+            <HomeProjectCard
+              v-if="projects.featured"
+              :ref="(el) => (cards[index] = el)"
+              :id="projects.id"
+              :title="projects.title"
+              :image="projects.image"
+              :smallDesc="projects.smallDesc"
+              :about="projects.about"
+              :link1="projects.link1"
+              :link2="projects.link2"
+            ></HomeProjectCard>
+          </div>
         </div>
       </div>
-      <button type="button" @click="nextSlide">R</button>
+      <button type="button" :disabled="currentIndex == maxIndex" @click="nextSlide">R</button>
     </div>
     <router-link to="/projects" class="int-link">See All Projects -></router-link>
   </section>
@@ -82,13 +84,6 @@ const nextSlide = () => {
 <style scoped>
 #home-projects {
   background-color: var(--bg2);
-  width: var(--content-width);
-  margin: var(--md-gap) auto;
-
-  h2 {
-    text-align: center;
-    padding-bottom: var(--md-gap);
-  }
   .carousel-container {
     display: flex;
     flex-direction: row;
@@ -106,19 +101,20 @@ const nextSlide = () => {
       transition: var(--transition);
     }
     button:hover {
-      scale: 1.05;
       box-shadow: var(--primary-shadow);
+      text-shadow: var(--primary-shadow);
     }
     button:disabled {
       color: var(--primary2);
       box-shadow: none;
-      scale: none;
       border-color: var(--primary2);
       cursor: not-allowed;
     }
     .carousel-track {
-      overflow-x: auto;
+      overflow-x: hidden;
       padding: 0 20%;
+
+      /* ------------image mask----------- */
       -webkit-mask-image: linear-gradient(
         to right,
         transparent,
@@ -142,6 +138,7 @@ const nextSlide = () => {
       mask-composite: intersect;
       mask-size: 100% 100%;
 
+      /* ---------carousel ---------------- */
       .carousel {
         width: max-content;
         display: flex;
@@ -149,6 +146,10 @@ const nextSlide = () => {
         flex-wrap: nowrap;
         gap: var(--xl-gap);
         scroll-snap-type: x mandatory;
+
+        div {
+          width: max-content;
+        }
       }
     }
     .carousel-track::-webkit-scrollbar {
@@ -157,11 +158,15 @@ const nextSlide = () => {
   }
 
   a.int-link {
-    margin: var(--sm-gap) var(--md-gap) 0 auto;
+    margin: var(--md-gap) var(--md-gap) 0 auto;
     display: block;
-    width: 100%;
+    width: fit-content;
     text-align: right;
     color: var(--primary);
+    transition: var(--transition);
+  }
+  a.int-link:hover {
+    scale: 1.1;
   }
 }
 </style>

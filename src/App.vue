@@ -9,4 +9,6 @@ import SlimHeader from './components/SlimHeader.vue'
   <RouterView />
 </template>
 
-<style scoped></style>
+<style scoped>
+@import './assets/base.css';
+</style>

@@ -18,7 +18,7 @@
       "about": "Lorem ipsum dolor sit amet ed elipsicing. Second sentence for a little longer description.",
       "link1": "www.yelp.com",
       "link2": "www.google.com",
-      "featured": false
+      "featured": true
     },
     {
       "id": 3,

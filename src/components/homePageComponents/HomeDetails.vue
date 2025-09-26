@@ -4,7 +4,7 @@
   <section id="home">
     <img src="/tristan-carter.jpeg" alt="" />
     <div id="home-details">
-      <h1>Hey, I'm Tristan Carter.</h1>
+      <h1>Hi, I'm Tristan Carter.</h1>
       <h2>I am a <span>web developer</span></h2>
       <p>
         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad nisi distinctio aspernatur quia
@@ -38,12 +38,14 @@
 
     h1 {
       font-size: 42px;
-      margin-bottom: var(--lg-gap);
+      margin-bottom: var(--md-gap);
     }
     h2 {
-      margin-bottom: var(--md-gap);
+      text-align: left;
+      color: var(--text-color);
       span {
         color: var(--primary);
+        font-family: var(--header-font);
       }
     }
     p {
