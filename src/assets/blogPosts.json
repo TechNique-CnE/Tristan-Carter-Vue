@@ -1,0 +1,31 @@
+{
+  "blogPosts": [
+    {
+      "id": 1,
+      "title": "Project One",
+      "link": "BlogPost1.md",
+      "about": "Lorem ipsum dolor sit amet ed elipsicing. Second sentence for a little longer description.",
+      "publish-date": "09/26/2025",
+      "edited-date": "09/30/2025",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "title": "Project Two",
+      "link": "BlogPost2.md",
+      "about": "Lorem ipsum dolor sit amet ed elipsicing. Second sentence for a little longer description.",
+      "publish-date": "09/26/2025",
+      "edited-date": "09/30/2025",
+      "featured": false
+    },
+    {
+      "id": 3,
+      "title": "Project Three",
+      "link": "BlogPost3.md",
+      "about": "Lorem ipsum dolor sit amet ed elipsicing. Second sentence for a little longer description.",
+      "publish-date": "09/26/2025",
+      "edited-date": "09/30/2025",
+      "featured": true
+    }
+  ]
+}

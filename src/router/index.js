@@ -20,6 +20,12 @@ const router = createRouter({
       component: () => import('../views/BlogPage.vue'),
     },
     {
+      path: '/post/:link',
+      name: 'post',
+      component: () => import('../views/PostPage.vue'),
+      props: true,
+    },
+    {
       path: '/contact',
       name: 'contact',
       component: () => import('../views/ContactPage.vue'),
