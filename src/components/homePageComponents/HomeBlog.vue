@@ -18,6 +18,8 @@ const blogPosts = jsonData.blogPosts
       </li>
     </ul>
 
+    <router-link class="int-link" to="/blog">All Blog Posts -></router-link>
+
     <!--<h2>Featured Blog Posts</div>
     <ul>
       <li v-for="(featPost, index) in featuredPosts" :key="index.id">
@@ -59,6 +61,12 @@ const blogPosts = jsonData.blogPosts
         margin: 0 var(--md-gap) 0 auto;
       }
     }
+  }
+  a.int-link {
+    color: var(--secondary);
+    display: block;
+    width: fit-content;
+    margin: var(--md-gap) var(--md-gap) 0 auto;
   }
 }
 </style>
