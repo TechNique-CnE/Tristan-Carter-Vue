@@ -28,6 +28,7 @@ header {
   padding: var(--sm-gap);
   backdrop-filter: blur(10px);
   z-index: 10;
+  margin-bottom: 60px;
 
   .container {
     width: var(--content-width);

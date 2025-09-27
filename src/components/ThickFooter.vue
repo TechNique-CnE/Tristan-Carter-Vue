@@ -9,7 +9,7 @@ import { RouterLink } from 'vue-router'
       <li><router-link to="/projects">projects</router-link></li>
       <li><router-link to="/blog">blog</router-link></li>
       <li><router-link to="/contact">contact</router-link></li>
-      <li><router-link>FAQ</router-link></li>
+      <li><router-link to="/#home-contact">FAQ</router-link></li>
     </ul>
   </footer>
 </template>
@@ -20,6 +20,7 @@ footer {
   height: 50dvh;
   background-color: var(--bg2);
   padding-top: var(--lg-gap);
+  margin-top: 80px;
   border-top: var(--border);
 
   ul {
