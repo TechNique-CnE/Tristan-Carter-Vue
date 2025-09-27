@@ -63,7 +63,7 @@ const blogPosts = jsonData.blogPosts
     }
   }
   a.int-link {
-    color: var(--secondary);
+    color: var(--primary);
     display: block;
     width: fit-content;
     margin: var(--md-gap) var(--md-gap) 0 auto;

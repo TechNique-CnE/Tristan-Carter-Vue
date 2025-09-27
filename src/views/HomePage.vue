@@ -2,18 +2,22 @@
 import HomeDetails from '@/components/homePageComponents/HomeDetails.vue'
 import HomeProjects from '@/components/homePageComponents/HomeProjects.vue'
 import HomeBlog from '@/components/homePageComponents/HomeBlog.vue'
+import HomeContact from '@/components/homePageComponents/HomeContact.vue'
 </script>
 
 <template>
   <main>
-    <!-- ---------------- Home --------------------- -->
+    <!-- ------------------ Home --------------------- -->
     <HomeDetails />
     <hr class="divider" />
-    <!-- ------------------- Projects --------------- -->
+    <!-- ------------------ Projects ----------------- -->
     <HomeProjects />
     <hr class="divider" />
-    <!-- ------------------- Blog -------------------- -->
+    <!-- ------------------ Blog --------------------- -->
     <HomeBlog />
+    <hr class="divider" />
+    <!-- ------------------ Contact ------------------ -->
+    <HomeContact />
     <hr class="divider" />
   </main>
 </template>

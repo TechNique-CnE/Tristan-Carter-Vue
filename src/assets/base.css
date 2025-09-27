@@ -1,10 +1,10 @@
 :root {
   --primary: #08f508;
-  --secondary: #4a882d;
+  --secondary: #579e35;
   --accent: #224d0e;
   --body-bg: black;
   --bg: rgba(97, 91, 91, 0.2);
-  --bg2: rgba(51, 61, 49, 0.2);
+  --bg2: rgba(44, 92, 35, 0.2);
   --content-bg: rgba(0, 0, 0, 0.8);
   --text-color: white;
   --primary-shadow: 0 0 8px var(--primary);
@@ -42,6 +42,7 @@ body {
   font-size: var(--fs-sm);
   z-index: 1;
   scroll-behavior: smooth;
+  letter-spacing: 1pt;
 }
 main {
   width: 100%;
@@ -53,6 +54,7 @@ section {
   padding: var(--md-gap) var(--lg-gap);
   backdrop-filter: blur(10px);
   border-radius: 25px;
+  border: 2px solid transparent;
 }
 
 h2 {
