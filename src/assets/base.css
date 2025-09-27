@@ -1,23 +1,16 @@
 :root {
   --primary: #08f508;
-  --primary2: #4a882d;
-  --primary3: #2e6913;
-  --bg: black;
-  --bg2: rgba(128, 128, 128, 0.2);
+  --secondary: #4a882d;
+  --accent: #224d0e;
+  --body-bg: black;
+  --bg: rgba(97, 91, 91, 0.2);
+  --bg2: rgba(51, 61, 49, 0.2);
   --content-bg: rgba(0, 0, 0, 0.8);
   --text-color: white;
   --primary-shadow: 0 0 8px var(--primary);
   --primary-shadow2: 0 0 12px var(--primary);
   --primary-shadow3: 0 0 16px var(--primary);
-  /* --black-shadow: 0 0 8px #000000; */
-  /* --black-shadow: 0 0 12px #000000; */
-  /* --heading-color: ; */
-  /* --gradient-primary:  */
-  /* --gradient-secondary:  */
-  /* --shadow: ; */
-  /* --shadow-heavy: ; */
   --border: 2px solid var(--primary);
-  /* --border2: ; */
   --content-width: 90%;
   --lh: 1.2;
   --lh2: 1.5;
@@ -44,7 +37,7 @@
 }
 
 body {
-  background-color: var(--bg);
+  background-color: var(--body-bg);
   color: var(--text-color);
   font-size: var(--fs-sm);
   z-index: 1;
@@ -61,6 +54,7 @@ section {
   backdrop-filter: blur(10px);
   border-radius: 25px;
 }
+
 h2 {
   font-family: var(--header-font);
   font-size: var(--fs-lg);
@@ -71,7 +65,7 @@ h2 {
 h3 {
   font-family: var(--header-font);
   font-size: var(--fs-md);
-  color: var(--primary2);
+  color: var(--secondary);
 }
 hr.divider {
   width: 100%;
@@ -79,3 +73,12 @@ hr.divider {
   min-height: 125px;
   border: none;
 }
+
+/* --black-shadow: 0 0 8px #000000; */
+/* --black-shadow: 0 0 12px #000000; */
+/* --heading-color: ; */
+/* --gradient-primary:  */
+/* --gradient-secondary:  */
+/* --shadow: ; */
+/* --shadow-heavy: ; */
+/* --border2: ; */

@@ -44,10 +44,10 @@ defineProps(['id', 'title', 'image', 'smallDesc', 'about', 'link1', 'link2'])
     text-align: right;
     a {
       padding-left: var(--sm-gap);
-      color: var(--primary2);
+      color: var(--secondary);
     }
     a:nth-child(2) {
-      color: var(--primary3);
+      color: var(--accent);
     }
   }
 }

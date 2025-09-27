@@ -30,7 +30,7 @@ function animateScrollToCard(index, duration = 600) {
   function animate(time) {
     const elapsed = time - startTime
     const progress = Math.min(elapsed / duration, 1)
-    // Ease in-out cubic
+    // ---------- animation ease-in-out -------------
     const ease =
       progress < 0.5 ? 4 * progress * progress * progress : 1 - Math.pow(-2 * progress + 2, 3) / 2
     trackEl.scrollLeft = currentScroll + (targetScroll - currentScroll) * ease
@@ -60,19 +60,18 @@ const nextSlide = () => {
       <button type="button" @click="previousSlide" :disabled="currentIndex == 0">L</button>
       <div class="carousel-track">
         <div class="carousel">
-          <div v-for="(projects, index) in featuredProjectData" :key="projects.id">
-            <HomeProjectCard
-              v-if="projects.featured"
-              :ref="(el) => (cards[index] = el)"
-              :id="projects.id"
-              :title="projects.title"
-              :image="projects.image"
-              :smallDesc="projects.smallDesc"
-              :about="projects.about"
-              :link1="projects.link1"
-              :link2="projects.link2"
-            ></HomeProjectCard>
-          </div>
+          <HomeProjectCard
+            v-for="(projects, index) in featuredProjectData"
+            :key="projects.id"
+            :ref="(el) => (cards[index] = el)"
+            :id="projects.id"
+            :title="projects.title"
+            :image="projects.image"
+            :smallDesc="projects.smallDesc"
+            :about="projects.about"
+            :link1="projects.link1"
+            :link2="projects.link2"
+          ></HomeProjectCard>
         </div>
       </div>
       <button type="button" :disabled="currentIndex == maxIndex" @click="nextSlide">R</button>
@@ -105,9 +104,9 @@ const nextSlide = () => {
       text-shadow: var(--primary-shadow);
     }
     button:disabled {
-      color: var(--primary2);
+      color: var(--accent);
       box-shadow: none;
-      border-color: var(--primary2);
+      border-color: var(--accent);
       cursor: not-allowed;
     }
     .carousel-track {
@@ -146,10 +145,6 @@ const nextSlide = () => {
         flex-wrap: nowrap;
         gap: var(--xl-gap);
         scroll-snap-type: x mandatory;
-
-        div {
-          width: max-content;
-        }
       }
     }
     .carousel-track::-webkit-scrollbar {
