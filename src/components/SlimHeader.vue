@@ -1,5 +1,6 @@
 <script setup>
 import { RouterLink } from 'vue-router'
+import AnimatedLink from './animationComponents/AnimatedLink.vue'
 </script>
 
 <template>
@@ -9,10 +10,10 @@ import { RouterLink } from 'vue-router'
       <router-link to="/"><img src="/tc-logo.png" alt="Tristan Carter Logo" /></router-link>
       <nav>
         <!-- links -->
-        <router-link to="/projects">Projects</router-link>
-        <router-link to="/blog">Blog</router-link>
-        <router-link to="/contact">Contact</router-link>
-        <router-link to="/about">About</router-link>
+        <AnimatedLink class="nav-link" to="/projects">Projects</AnimatedLink>
+        <AnimatedLink class="nav-link" to="/blog">Blog</AnimatedLink>
+        <AnimatedLink class="nav-link" to="/contact">Contact</AnimatedLink>
+        <AnimatedLink class="nav-link" to="/about">About</AnimatedLink>
         <button>Themes</button>
       </nav>
     </div>
@@ -20,8 +21,6 @@ import { RouterLink } from 'vue-router'
 </template>
 
 <style scoped>
-@import '../assets/base.css';
-
 header {
   width: 100%;
   background-color: var(--bg2);
@@ -59,7 +58,7 @@ header {
       width: 75%;
       margin: 0 auto;
 
-      a,
+      .nav-link,
       button {
         font-size: var(--fs-sm);
         list-style: none;
@@ -73,7 +72,7 @@ header {
         border-bottom: 2px solid transparent;
       }
 
-      a:hover,
+      .nav-link:hover,
       button:hover {
         border-bottom: 2px solid var(--primary);
         color: var(--primary);

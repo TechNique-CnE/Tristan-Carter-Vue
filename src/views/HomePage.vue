@@ -18,6 +18,5 @@ import HomeContact from '@/components/homePageComponents/HomeContact.vue'
     <hr class="divider" />
     <!-- ------------------ Contact ------------------ -->
     <HomeContact />
-    <hr class="divider" />
   </main>
 </template>

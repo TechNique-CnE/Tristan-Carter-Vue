@@ -38,6 +38,7 @@
 
 body {
   background-color: var(--body-bg);
+  position: relative;
   color: var(--text-color);
   font-size: var(--fs-sm);
   z-index: 1;
