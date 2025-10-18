@@ -1,6 +1,6 @@
 <script setup>
 import { RouterLink } from 'vue-router'
-import AnimatedLink from './animationComponents/AnimatedLink.vue'
+import AnimatedText from './animationComponents/AnimatedText.vue'
 </script>
 
 <template>
@@ -10,10 +10,18 @@ import AnimatedLink from './animationComponents/AnimatedLink.vue'
       <router-link to="/"><img src="/tc-logo.png" alt="Tristan Carter Logo" /></router-link>
       <nav>
         <!-- links -->
-        <AnimatedLink class="nav-link" to="/projects">Projects</AnimatedLink>
-        <AnimatedLink class="nav-link" to="/blog">Blog</AnimatedLink>
-        <AnimatedLink class="nav-link" to="/contact">Contact</AnimatedLink>
-        <AnimatedLink class="nav-link" to="/about">About</AnimatedLink>
+        <router-link class="nav-link" to="/projects">
+          <AnimatedText>Projects</AnimatedText>
+        </router-link>
+        <router-link class="nav-link" to="/blog">
+          <AnimatedText>Blog</AnimatedText>
+        </router-link>
+        <router-link class="nav-link" to="/contact">
+          <AnimatedText>Contact</AnimatedText>
+        </router-link>
+        <router-link class="nav-link" to="/about">
+          <AnimatedText>About</AnimatedText>
+        </router-link>
         <button>Themes</button>
       </nav>
     </div>

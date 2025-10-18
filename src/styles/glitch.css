@@ -1,24 +1,25 @@
-.animated-link.glitch {
+.animated-text.glitch {
   position: relative;
   display: inline-block;
-  color: var(--primary);
   text-decoration: none;
   transition: var(--transition);
   cursor: pointer;
   animation: glitch1 10s infinite;
 }
-.animated-link.glitch::before {
+.animated-text.glitch::before {
   color: var(--secondary);
   z-index: -1;
+  opacity: 0.75;
   animation: glitch2 10s infinite;
 }
-.animated-link.glitch::after {
-  z-index: -2;
+.animated-text.glitch::after {
   color: var(--accent);
+  z-index: -2;
+  opacity: 0.5;
   animation: glitch3 10s infinite;
 }
-.animated-link.glitch::before,
-.animated-link.glitch::after {
+.animated-text.glitch::before,
+.animated-text.glitch::after {
   content: var(--dynamic-content);
   position: absolute;
   top: 0;
@@ -32,165 +33,115 @@
   0%,
   80% {
     transform: none;
-    opacity: 1;
   }
   81.4% {
-    transform: translate(6px, 6px);
-    opacity: 0.75;
+    transform: translate(-6px, 6px);
   }
-  82% {
-    transform: none;
-    opacity: 1;
-  }
+  82%,
   85.4% {
     transform: none;
-    opacity: 1;
   }
   86% {
-    transform: translate(-4px, 8px);
-    opacity: 0.75;
+    transform: translate(-6px, 6px);
   }
-  87% {
-    transform: none;
-    opacity: 1;
-  }
-  90.4% {
-    transform: none;
-    opacity: 1;
-  }
+  87%,
   91% {
-    transform: translate(4px, -8px);
-    opacity: 0.75;
-  }
-  90% {
     transform: none;
-    opacity: 1;
   }
+  92%,
   94.4% {
-    transform: none;
-    opacity: 1;
+    transform: translate(8px, -8px);
   }
   95% {
     transform: translate(-6px, -6px);
-    opacity: 0.75;
   }
-  96% {
-    transform: none;
-    opacity: 1;
-  }
+  96%,
   100% {
     transform: none;
-    opacity: 1;
   }
 }
 @keyframes glitch2 {
   0%,
   80% {
     transform: none;
-    opacity: 0.5;
   }
   81.2% {
     transform: translate(-4px, -6px);
-    opacity: 0.75;
   }
   82% {
     transform: none;
-    opacity: 0.5;
   }
   85.4% {
     transform: none;
-    opacity: 0.5;
   }
   86% {
     transform: translate(6px, -4px);
-    opacity: 0.75;
   }
   87% {
     transform: none;
-    opacity: 0.5;
   }
   90.4% {
     transform: none;
-    opacity: 0.5;
   }
   91% {
     transform: translate(-6px, -2px);
-    opacity: 0.75;
   }
   90% {
     transform: none;
-    opacity: 0.5;
   }
   94.4% {
     transform: none;
-    opacity: 0.5;
   }
   95% {
     transform: translate(4px, 8px);
-    opacity: 0.75;
   }
   96% {
     transform: none;
-    opacity: 0.5;
   }
   100% {
     transform: none;
-    opacity: 0.5;
   }
 }
 @keyframes glitch3 {
   0%,
   80% {
     transform: none;
-    opacity: 0.5;
   }
   81.4% {
     transform: translate(4px, 6px);
-    opacity: 0.75;
   }
   82% {
     transform: none;
-    opacity: 0.5;
   }
   85.4% {
     transform: none;
-    opacity: 0.5;
   }
   86% {
     transform: translate(6px, 4px);
-    opacity: 0.75;
   }
   87% {
     transform: none;
-    opacity: 0.5;
   }
   90.4% {
     transform: none;
-    opacity: 0.5;
   }
   91% {
     transform: translate(6px, 2px);
-    opacity: 0.75;
   }
   90% {
     transform: none;
-    opacity: 0.5;
   }
   94.4% {
     transform: none;
-    opacity: 0.5;
   }
   95% {
     transform: translate(-4px, -8px);
-    opacity: 0.75;
   }
   96% {
     transform: none;
-    opacity: 0.5;
   }
   100% {
     transform: none;
-    opacity: 0.5;
   }
 }
 @keyframes glitchy-words {
