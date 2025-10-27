@@ -1,7 +1,7 @@
 <script setup>
 import HomeDetails from '@/components/homePageComponents/HomeDetails.vue'
 import HomeProjects from '@/components/homePageComponents/HomeProjects.vue'
-import HomeBlog from '@/components/homePageComponents/HomeBlog.vue'
+// import HomeBlog from '@/components/homePageComponents/HomeBlog.vue'
 import HomeContact from '@/components/homePageComponents/HomeContact.vue'
 </script>
 
@@ -12,9 +12,9 @@ import HomeContact from '@/components/homePageComponents/HomeContact.vue'
     <hr class="divider" />
     <!-- ------------------ Projects ----------------- -->
     <HomeProjects />
-    <hr class="divider" />
+    <!-- <hr class="divider" /> -->
     <!-- ------------------ Blog --------------------- -->
-    <HomeBlog />
+    <!-- <HomeBlog /> -->
     <hr class="divider" />
     <!-- ------------------ Contact ------------------ -->
     <HomeContact />

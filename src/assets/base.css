@@ -2,16 +2,17 @@
   --primary: #08f508;
   --secondary: #579e35;
   --accent: #224d0e;
-  --body-bg: black;
+  --body-bg: rgb(14, 14, 14);
   --bg: rgba(97, 91, 91, 0.2);
-  --bg2: rgba(44, 92, 35, 0.2);
+  --bg2: rgba(0, 0, 0, 0.2);
+  /* gradient on bg2 */
   --content-bg: rgba(0, 0, 0, 0.8);
   --text-color: white;
   --primary-shadow: 0 0 8px var(--primary);
   --primary-shadow2: 0 0 12px var(--primary);
   --primary-shadow3: 0 0 16px var(--primary);
   --border: 2px solid var(--primary);
-  --content-width: 90%;
+  --content-width: 95%;
   --lh: 1.2;
   --lh2: 1.5;
   --sm-gap: 10px;
@@ -50,7 +51,7 @@ main {
 }
 section {
   width: var(--content-width);
-  min-height: 80dvh;
+  min-height: 85dvh;
   margin: var(--lg-gap) auto;
   padding: var(--md-gap) var(--lg-gap);
   backdrop-filter: blur(10px);
@@ -72,7 +73,7 @@ h3 {
 }
 hr.divider {
   width: 100%;
-  height: 20dvh;
+  height: 15dvh;
   min-height: 125px;
   border: none;
 }

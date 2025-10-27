@@ -7,15 +7,15 @@ import AnimatedText from './animationComponents/AnimatedText.vue'
   <header>
     <!-- logo -->
     <div class="container">
-      <router-link to="/"><img src="/tc-logo.png" alt="Tristan Carter Logo" /></router-link>
+      <router-link to="/"><img src="/public/tc-logo.PNG" alt="Tristan Carter Logo" /></router-link>
       <nav>
         <!-- links -->
         <router-link class="nav-link" to="/projects">
           <AnimatedText>Projects</AnimatedText>
         </router-link>
-        <router-link class="nav-link" to="/blog">
+        <!-- <router-link class="nav-link" to="/blog">
           <AnimatedText>Blog</AnimatedText>
-        </router-link>
+        </router-link> -->
         <router-link class="nav-link" to="/contact">
           <AnimatedText>Contact</AnimatedText>
         </router-link>
@@ -34,6 +34,7 @@ header {
   background-color: var(--bg2);
   padding: var(--sm-gap);
   backdrop-filter: blur(10px);
+  border-bottom: var(--border);
   z-index: 10;
   margin-bottom: 60px;
 
@@ -46,15 +47,11 @@ header {
     gap: var(--md-gap);
 
     a img {
-      height: 75px;
-      aspect-ratio: 1/1;
-      border-radius: 50%;
-      border: 1px solid white;
+      width: 75px;
+      aspect-ratio: 3/2;
       transition: var(--transition);
-      box-shadow: var(--primary-shadow);
     }
     a img:hover {
-      box-shadow: var(--primary-shadow2);
       scale: 1.05;
     }
 
