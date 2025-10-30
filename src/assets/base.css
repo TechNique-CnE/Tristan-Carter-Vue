@@ -42,7 +42,6 @@ body {
   position: relative;
   color: var(--text-color);
   font-size: var(--fs-sm);
-  z-index: 1;
   scroll-behavior: smooth;
   letter-spacing: 1pt;
 }

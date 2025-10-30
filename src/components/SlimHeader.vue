@@ -65,7 +65,7 @@ header {
       margin: 0 auto;
 
       .nav-link {
-        padding: 10px 10px 0;
+        padding: 5px 10px 0;
         margin-bottom: 10px;
         font-size: var(--fs-sm);
         list-style: none;

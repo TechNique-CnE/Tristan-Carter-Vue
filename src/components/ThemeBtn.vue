@@ -1,35 +1,64 @@
 <script setup>
-import { ref, inject, onMounted, onBeforeUnmount } from 'vue'
-const isOpen = ref(true)
+import { ref, inject, onMounted, onBeforeUnmount, watch, nextTick } from 'vue'
+const isOpen = ref(false)
+
+// ----------------------------------------
+// Try to set a specific spot for teleport instead of all this code
+// ----------------------------------------
 
 const themeBtn = ref(null)
-const btnBtm = ref(null)
-const btnWidth = ref(null)
-const btnLeft = ref(null)
-const btnMid = ref(null)
-const topValue = ref('55px')
-const leftValue = ref('60%')
+const themeBoxContainer = ref(null)
+
+const btnBtm = ref(0)
+const btnLeft = ref(0)
+const btnMid = ref(0)
+const boxWidth = ref(0)
+const topValue = ref('0px')
+const leftValue = ref('0px')
+
+function measureContainerWidth(el) {
+  if (!el) return 0
+  const rect = el.getBoundingClientRect()
+  if (rect.width) return rect.width
+  // fallback to CSS width when element is display:none (v-show false)
+  const cs = getComputedStyle(el)
+  const w = parseFloat(cs.width)
+  return Number.isFinite(w) && w > 0 ? w : 200 // fallback to css width
+}
 
 function updateValues() {
-  console.log(themeBtn.value.getBoundingClientRect())
-  btnBtm.value = themeBtn.value.getBoundingClientRect().bottom
-  btnLeft.value = themeBtn.value.getBoundingClientRect().left
-  btnWidth.value = themeBtn.value.getBoundingClientRect().width / 2
-  btnMid.value = btnLeft.value + btnWidth.value
+  if (!themeBtn.value) return
 
+  const btnRect = themeBtn.value.getBoundingClientRect()
+  btnBtm.value = btnRect.bottom
+  btnLeft.value = btnRect.left
+
+  if (themeBoxContainer.value) {
+    boxWidth.value = measureContainerWidth(themeBoxContainer.value)
+  }
+
+  btnMid.value = btnLeft.value - boxWidth.value / 2
+  if (btnMid.value + boxWidth.value > window.innerWidth - 65) {
+    btnMid.value -= 30
+  }
   leftValue.value = btnMid.value + 'px'
   topValue.value = btnBtm.value + 'px'
 }
 
 onMounted(() => {
   updateValues()
-  window.addEventListener('resize', () => {
-    updateValues()
-  })
+  window.addEventListener('resize', updateValues)
 })
 
 onBeforeUnmount(() => {
-  window.removeEventListener('resize')
+  window.removeEventListener('resize', updateValues)
+})
+
+watch(isOpen, async (open) => {
+  if (open) {
+    await nextTick()
+    updateValues()
+  }
 })
 
 const { updateClass } = inject('animationClass')
@@ -39,18 +68,24 @@ const { updateClass } = inject('animationClass')
 
 <template>
   <div class="theme-container">
-    <button @click="isOpen = !isOpen" class="nav-link" :class="{ active: isOpen }" ref="themeBtn">
+    <button
+      @click="isOpen = !isOpen"
+      id="themeBtn"
+      class="nav-link"
+      :class="{ active: isOpen }"
+      ref="themeBtn"
+    >
       Themes
     </button>
-
     <teleport to="body">
       <div
-        class="theme-box"
+        class="theme-box-container"
         v-show="isOpen"
         :class="{ active: isOpen }"
         :style="{ top: topValue, left: leftValue }"
+        ref="themeBoxContainer"
       >
-        <div>
+        <div class="theme-box">
           <button @click="updateClass(null)">
             <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none">
               <path
@@ -65,7 +100,7 @@ const { updateClass } = inject('animationClass')
           </button>
           None
         </div>
-        <div>
+        <div class="theme-box">
           <button @click="updateClass('glitch')">
             <svg
               width="100%"
@@ -87,13 +122,13 @@ const { updateClass } = inject('animationClass')
           </button>
           Glitch
         </div>
-        <div>
+        <div class="theme-box">
           <button @click="updateClass(null)"></button>
-          Theme 3
+          Theme
         </div>
-        <div>
+        <div class="theme-box">
           <button @click="updateClass(null)"></button>
-          Theme 4
+          Theme
         </div>
       </div>
     </teleport>
@@ -105,11 +140,12 @@ const { updateClass } = inject('animationClass')
   position: relative;
 }
 button.nav-link {
+  position: relative;
   font-size: var(--fs-sm);
   list-style: none;
   color: var(--txt-color);
   text-decoration: none;
-  padding: 10px 10px 0;
+  padding: 5px 10px 0;
   cursor: pointer;
   background-color: transparent;
   border: 2px solid transparent;
@@ -117,6 +153,8 @@ button.nav-link {
   border-top-right-radius: 5px;
   transition: var(--transition);
   margin-bottom: 10px;
+
+  z-index: 30;
 }
 button.nav-link:hover {
   border-bottom: 2px solid var(--primary);
@@ -132,32 +170,36 @@ button.nav-link.active {
   border-bottom: 2px solid transparent;
 }
 
-.theme-box {
+.theme-box-container {
   position: absolute;
-  transform: translateX(-53.5%);
+  transform: translate(25%, -2px);
   display: grid;
   background-color: var(--bg2);
   backdrop-filter: blur(10px);
   grid-template-columns: repeat(3, 1fr);
-  width: min(250px, 90%);
+  width: 200px;
   padding: var(--sm-gap);
   gap: var(--sm-gap);
   border-radius: 5px;
-}
-.theme-box.active {
-  border: 2px solid;
-  border-image: conic-gradient(at 33% 100%, transparent 0 6%, var(--primary) 6% 100%) 1;
+  z-index: 20;
 }
 
-.theme-box div {
+.theme-box-container.active {
+  border: 2px solid var(--primary);
+  /* border-image: conic-gradient(at 33% 100%, transparent 0 6%, var(--primary) 6% 100%) 1; */
+}
+
+.theme-box {
   font-size: 14px;
   align-items: center;
   display: flex;
   flex-direction: column;
+  gap: 5px;
 }
-.theme-box div button {
+.theme-box button {
   background-color: var(--bg);
-  width: 100%;
+  min-width: 50px;
+  max-width: 50px;
   aspect-ratio: 1/1;
   border: none;
   cursor: pointer;
