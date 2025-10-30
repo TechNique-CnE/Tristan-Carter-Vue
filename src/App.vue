@@ -3,11 +3,15 @@ import { RouterView } from 'vue-router'
 import { ref, provide } from 'vue'
 import SlimHeader from './components/SlimHeader.vue'
 import ThickFooter from './components/ThickFooter.vue'
+
 import AnimationContainer from './components/AnimationContainer.vue'
+const animationClass = ref(null)
 
-const animationClass = ref('glitch')
+function updateClass(newClass) {
+  animationClass.value = newClass
+}
 
-provide('animationClass', animationClass)
+provide('animationClass', { animationClass, updateClass })
 </script>
 
 <template>

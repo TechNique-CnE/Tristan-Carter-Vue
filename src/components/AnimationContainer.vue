@@ -3,7 +3,7 @@ import GlitchyTheme from './animationComponents/GlitchyTheme.vue'
 import { ref, inject } from 'vue'
 
 const animationContainer = ref(null)
-const animationClass = inject('animationClass')
+const { animationClass } = inject('animationClass')
 </script>
 
 <!-- change animation-container class on button click in header, under themes tab -->

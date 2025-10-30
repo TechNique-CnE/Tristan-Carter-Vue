@@ -1,7 +1,7 @@
 <script setup>
 import { inject, computed, useSlots } from 'vue'
 
-const animationClass = inject('animationClass')
+const { animationClass } = inject('animationClass')
 
 // CSS content needs a quoted string for content: var(--dynamic-content)
 // Get slot content and sanitize for :before and :after in themed styles

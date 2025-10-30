@@ -1,6 +1,7 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 import AnimatedText from './animationComponents/AnimatedText.vue'
+import ThemeBtn from './ThemeBtn.vue'
 </script>
 
 <template>
@@ -22,7 +23,7 @@ import AnimatedText from './animationComponents/AnimatedText.vue'
         <router-link class="nav-link" to="/about">
           <AnimatedText>About</AnimatedText>
         </router-link>
-        <button>Themes</button>
+        <ThemeBtn />
       </nav>
     </div>
   </header>
@@ -63,22 +64,21 @@ header {
       width: 75%;
       margin: 0 auto;
 
-      .nav-link,
-      button {
+      .nav-link {
+        padding: 10px 10px 0;
+        margin-bottom: 10px;
         font-size: var(--fs-sm);
         list-style: none;
-        margin: 0 var(--sm-gap) var(--sm-gap) 0;
         color: var(--txt-color);
         text-decoration: none;
         transition: var(--transition);
         cursor: pointer;
         background-color: transparent;
         border: none;
-        border-bottom: 2px solid transparent;
+        border: 2px solid transparent;
       }
 
-      .nav-link:hover,
-      button:hover {
+      .nav-link:hover {
         border-bottom: 2px solid var(--primary);
         color: var(--primary);
         scale: 1.05;
