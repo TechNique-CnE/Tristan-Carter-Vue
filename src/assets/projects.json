@@ -2,30 +2,30 @@
   "projects": [
     {
       "id": 1,
-      "title": "Project One",
+      "title": "AJ's Lawn and Home",
       "image": "/tristan-carter.jpeg",
       "small-desc": "small photo description",
-      "about": "Lorem ipsum dolor sit amet ed elipsicing. Second sentence for a little longer description.",
+      "about": "A website built with brand-consistent and search engine optimization (SEO) best practices to establish and grow the client's online presence. ",
       "link1": "www.yelp.com",
       "link2": "www.google.com",
       "featured": true
     },
     {
       "id": 2,
-      "title": "Project Two",
+      "title": "David Chu's China Bistro",
       "image": "/tristan-carter.jpeg",
       "small-desc": "small photo description",
-      "about": "Lorem ipsum dolor sit amet ed elipsicing. Second sentence for a little longer description.",
+      "about": "A pixel-perfect implementation of the original website, refactored from Bootstrap 3 to 5. This website was built as a capstone for a certification course.",
       "link1": "www.yelp.com",
       "link2": "www.google.com",
       "featured": true
     },
     {
       "id": 3,
-      "title": "Project Three",
+      "title": "Shopify Project",
       "image": "/tristan-carter.jpeg",
       "small-desc": "small photo description",
-      "about": "Lorem ipsum dolor sit amet ed elipsicing. Second sentence for a little longer description.",
+      "about": "Working with a local artist to increase online product sales. This website is using Nuxt and Vuetify front end with a Shopify API backend.",
       "link1": "www.yelp.com",
       "link2": "www.google.com",
       "featured": true

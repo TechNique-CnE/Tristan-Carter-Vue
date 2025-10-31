@@ -4,16 +4,15 @@
   <section id="home">
     <img src="/tristan-carter.jpeg" alt="" />
     <div id="home-details">
-      <h1>Hi, I'm <span>Tristan Carter.</span></h1>
-      <h2>I am a <span>web developer</span></h2>
+      <h1>Hi, I'm Tristan<span> Carter.</span></h1>
+      <h2>I am a <span id="change-text-animation">web developer.</span></h2>
       <p>
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ad nisi distinctio aspernatur quia
-        velit consequuntur assumenda sint, facilis neque illo incidunt quasi laudantium temporibus
-        porro.
+        I enjoy producing customized solutions that advance and extend the capabilities of
+        small-medium businesses.
       </p>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Non, doloribus. Molestias cum
-        quibusdam numquam quae?
+        I am passionate about contributing clean, accessible, and responsive code while delivering
+        fully functional and beautiful products to clients.
       </p>
     </div>
   </section>
@@ -55,7 +54,7 @@
     }
     p {
       line-height: var(--lh2);
-      margin-bottom: var(--sm-gap);
+      margin-bottom: var(--md-gap);
     }
   }
 }
