@@ -1,7 +1,12 @@
-<script setup></script>
+<script setup>
+import SoftwareProjects from '@/components/projectsPageComponents/SoftwareProjects.vue'
+// import HardwareProjects from '@/components/projectsPageComponents/HardwareProjects.vue'
+</script>
 
 <template>
   <main>
-    <h2>This is the projects page</h2>
+    <SoftwareProjects />
+    <!-- <hr class="divider" /> -->
+    <!-- <HardwareProjects /> -->
   </main>
 </template>

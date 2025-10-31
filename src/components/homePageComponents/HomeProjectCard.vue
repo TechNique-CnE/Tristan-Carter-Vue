@@ -4,8 +4,8 @@ defineProps(['id', 'title', 'image', 'smallDesc', 'about', 'link1', 'link2'])
 
 <template>
   <div class="project-card">
-    <h3>{{ title }}</h3>
     <img loading="lazy" :src="image" :alt="smallDesc" />
+    <h3>{{ title }}</h3>
     <p>{{ about }}</p>
     <div class="links">
       <a :href="link1">Website</a>
@@ -35,7 +35,7 @@ defineProps(['id', 'title', 'image', 'smallDesc', 'about', 'link1', 'link2'])
   }
   p {
     text-align: center;
-    padding: 0 var(--sm-gap) var(--sm-gap);
+    padding: var(--sm-gap) var(--sm-gap);
     line-height: var(--lh2);
   }
   div.links {

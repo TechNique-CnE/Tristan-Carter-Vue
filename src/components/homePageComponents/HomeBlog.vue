@@ -1,7 +1,7 @@
 <script setup>
 import jsonData from '../../assets/blogPosts.json'
 const blogPosts = jsonData.blogPosts
-// const featuredPosts = blogPosts.filter((post) => post.featured)
+// seperated by software, hardware, gaming, general
 </script>
 
 <template>
@@ -19,14 +19,6 @@ const blogPosts = jsonData.blogPosts
     </ul>
 
     <router-link class="int-link" to="/blog">All Blog Posts -></router-link>
-
-    <!--<h2>Featured Blog Posts</div>
-    <ul>
-      <li v-for="(featPost, index) in featuredPosts" :key="index.id">
-        <p>{{ featPost.title }}</p>
-        <p>{{ featPost.about }}</p>
-      </li>
-    </ul> -->
   </section>
 </template>
 
