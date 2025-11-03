@@ -52,7 +52,7 @@ section {
   width: var(--content-width);
   min-height: 85dvh;
   margin: var(--lg-gap) auto;
-  padding: var(--md-gap) var(--lg-gap);
+  padding: var(--lg-gap);
   backdrop-filter: blur(10px);
   border-radius: 25px;
   border: 2px solid transparent;
@@ -63,7 +63,7 @@ h2 {
   font-size: var(--fs-lg);
   color: var(--primary);
   text-align: center;
-  padding-bottom: var(--md-gap);
+  padding-bottom: var(--lg-gap);
 }
 h3 {
   font-family: var(--header-font);

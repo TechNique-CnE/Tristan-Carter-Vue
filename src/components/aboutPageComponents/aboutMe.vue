@@ -2,12 +2,40 @@
 
 <template>
   <section>
-    <h2>About Me</h2>
+    <div class="about-container">
+      <img src="/public/tristan-carter.jpeg" alt="a young dev" />
+
+      <div class="details">
+        <h2>About Me</h2>
+        <p>
+          I am a freelance full-stack web developer who loves building smooth, responsive,
+          user-focused experiences with Nuxt. I enjoy turning ideas into performant, accessible
+          websites and apps with an intuitive design. I am always learning and expanding my skills,
+          from full-stack development to experimenting with the Unity game engine and even hands-on
+          PC hardware upgrades. Whether it's a business site, a personal project, or something
+          experimental, I bring a genuine passion for building projects that are polished,
+          puposeful, and built to last.
+        </p>
+      </div>
+    </div>
   </section>
 </template>
 
 <style scoped>
 section {
   background-color: var(--bg);
+  div.about-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    img {
+      width: 30%;
+      aspect-ratio: 1/1;
+    }
+    div.details {
+      display: flex;
+      flex-direction: column;
+    }
+  }
 }
 </style>

@@ -12,10 +12,10 @@ import HomeContact from '@/components/homePageComponents/HomeContact.vue'
     <hr class="divider" />
     <!-- ------------------ Projects ----------------- -->
     <HomeProjects />
-    <!-- <hr class="divider" /> -->
+    <hr class="divider" />
     <!-- ------------------ Blog --------------------- -->
     <!-- <HomeBlog /> -->
-    <hr class="divider" />
+    <!-- <hr class="divider" /> -->
     <!-- ------------------ Contact ------------------ -->
     <HomeContact />
   </main>
