@@ -1,7 +1,7 @@
 <script setup>
 import { RouterLink } from 'vue-router'
 import AnimatedText from './animationComponents/AnimatedText.vue'
-import ThemeBtn from './ThemeBtn.vue'
+// import ThemeBtn from './ThemeBtn.vue'
 </script>
 
 <template>
@@ -23,7 +23,8 @@ import ThemeBtn from './ThemeBtn.vue'
         <router-link class="nav-link" to="/about">
           <AnimatedText>About</AnimatedText>
         </router-link>
-        <ThemeBtn />
+        <!-- Hide on lower bandwidth devices or prefers reduced motion -->
+        <!-- <ThemeBtn /> -->
       </nav>
     </div>
   </header>
