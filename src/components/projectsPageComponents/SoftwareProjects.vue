@@ -2,7 +2,6 @@
 import jsonData from '../../assets/projects.json'
 const projectData = jsonData.projects
 const softwareProjectData = projectData.filter((project) => project.category == 'software')
-console.log(softwareProjectData)
 </script>
 
 <template>
@@ -15,8 +14,8 @@ console.log(softwareProjectData)
           <h3>{{ projects.title }}</h3>
           <p>{{ projects.about }}</p>
           <div class="links">
-            <a :href="projects.link1">Website</a>
-            <a :href="projects.link2">Repo</a>
+            <a :href="projects.link1" target="_blank">Website</a>
+            <a :href="projects.link2" target="_blank">Repo</a>
           </div>
         </div>
       </div>

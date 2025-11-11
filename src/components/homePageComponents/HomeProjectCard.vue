@@ -8,8 +8,8 @@ defineProps(['id', 'title', 'image', 'smallDesc', 'about', 'link1', 'link2'])
     <h3>{{ title }}</h3>
     <p>{{ about }}</p>
     <div class="links">
-      <a :href="link1">Website</a>
-      <a :href="link2">Repo</a>
+      <a :href="link1" target="_blank">Website</a>
+      <a :href="link2" target="_blank">Repo</a>
     </div>
   </div>
 </template>

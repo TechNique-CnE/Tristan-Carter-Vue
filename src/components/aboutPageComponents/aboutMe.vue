@@ -3,7 +3,7 @@
 <template>
   <section>
     <div class="about-container">
-      <img src="/public/tristan-carter.jpeg" alt="a young dev" />
+      <img src="/public/tristan-carter.jpeg" alt="a dev" />
 
       <div class="details">
         <h2>About Me</h2>
@@ -23,18 +23,28 @@
 
 <style scoped>
 section {
+  min-height: auto;
   background-color: var(--bg);
   div.about-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    gap: var(--lg-gap);
     img {
       width: 30%;
       aspect-ratio: 1/1;
+      border-radius: 15px;
     }
     div.details {
       display: flex;
       flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: var(--lh2);
+      h2{
+        padding-bottom: var(--md-gap);
+      }
     }
   }
 }
