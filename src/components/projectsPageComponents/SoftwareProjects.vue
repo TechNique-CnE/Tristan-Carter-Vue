@@ -50,7 +50,7 @@ const softwareProjectData = projectData.filter((project) => project.category == 
   img {
     display: block;
     aspect-ratio: 2/1;
-    width: 35%;
+    width: 36%;
     margin: var(--md-gap) 0;
     border-radius: 15px;
   }
@@ -60,18 +60,17 @@ const softwareProjectData = projectData.filter((project) => project.category == 
     flex-direction: column;
     justify-content: space-around;
     p {
-      padding: var(--sm-gap) 0;
+      padding: var(--sm-gap) var(--sm-gap) 0;
       line-height: var(--lh2);
     }
     div.links {
-      padding-right: var(--md-gap);
       padding-bottom: var(--sm-gap);
-      text-align: right;
+      text-align: left;
       a {
-        padding-left: var(--sm-gap);
         color: var(--primary);
       }
       a:nth-child(2) {
+        padding-left: var(--sm-gap);
         color: var(--secondary);
       }
     }

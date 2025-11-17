@@ -11,6 +11,9 @@ import AnimatedText from './animationComponents/AnimatedText.vue'
       <router-link to="/"><img src="/public/tc-logo.PNG" alt="Tristan Carter Logo" /></router-link>
       <nav>
         <!-- links -->
+        <router-link class="nav-link" to="/services">
+          <AnimatedText>Services</AnimatedText>
+        </router-link>
         <router-link class="nav-link" to="/projects">
           <AnimatedText>Projects</AnimatedText>
         </router-link>

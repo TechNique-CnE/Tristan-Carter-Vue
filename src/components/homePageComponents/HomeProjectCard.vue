@@ -22,9 +22,14 @@ defineProps(['id', 'title', 'image', 'smallDesc', 'about', 'link1', 'link2'])
   padding-top: var(--md-gap);
   border: 2px solid var(--primary);
   border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg);
+  transition: background-color var(--transition);
 
   h3 {
     text-align: center;
+
   }
   img {
     display: block;
@@ -42,6 +47,11 @@ defineProps(['id', 'title', 'image', 'smallDesc', 'about', 'link1', 'link2'])
     padding-right: var(--md-gap);
     padding-bottom: var(--sm-gap);
     text-align: right;
+    flex-grow: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
     a {
       padding-left: var(--sm-gap);
       color: var(--primary);
@@ -50,5 +60,9 @@ defineProps(['id', 'title', 'image', 'smallDesc', 'about', 'link1', 'link2'])
       color: var(--secondary);
     }
   }
+}
+
+.project-card:hover, .project-card.active{
+  background-color: var(--body-bg);
 }
 </style>

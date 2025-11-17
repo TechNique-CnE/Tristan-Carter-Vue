@@ -4,17 +4,35 @@ import jsonData from '../../assets/projects.json'
 const projectData = jsonData.projects
 const featuredProjectData = projectData.filter((project) => project.featured)
 
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 const currentIndex = ref(0)
 const cards = ref([])
 const maxIndex = computed(() => featuredProjectData.length - 1)
 
+onMounted(() => {
+  cards.value[currentIndex.value]?.$el.classList.add("active")
+
+})
+
 const scrollToCard = (index) => {
   animateScrollToCard(index, 600)
+  setActiveCard(index)
+}
+
+function clearActiveCard(index) {
+  const cardEl = cards.value[index]?.$el
+  cardEl.classList.remove("active")
+
+}
+function setActiveCard(index) {
+  const cardEl = cards.value[index]?.$el
+  cardEl.classList.add("active")
+
 }
 
 function animateScrollToCard(index, duration = 600) {
   const cardEl = cards.value[index]?.$el
+  console.log(currentIndex.value)
   const trackEl = document.querySelector('.carousel-track')
   if (!cardEl || !trackEl) return
 
@@ -42,12 +60,19 @@ function animateScrollToCard(index, duration = 600) {
   requestAnimationFrame(animate)
 }
 
+// ----------------------------fix clear active function
+// ----------------------------fix clear active function
+// ----------------------------fix clear active function
+
+
 const previousSlide = () => {
+  clearActiveCard(currentIndex.value)
   currentIndex.value = currentIndex.value > 0 ? currentIndex.value - 1 : maxIndex.value
   scrollToCard(currentIndex.value)
 }
 
 const nextSlide = () => {
+  clearActiveCard(currentIndex.value)
   currentIndex.value = currentIndex.value < maxIndex.value ? currentIndex.value + 1 : 0
   scrollToCard(currentIndex.value)
 }
@@ -82,7 +107,7 @@ const nextSlide = () => {
 
 <style scoped>
 #home-projects {
-  background-color: var(--bg2);
+  background-color: var(--bg);
   .carousel-container {
     display: flex;
     flex-direction: row;

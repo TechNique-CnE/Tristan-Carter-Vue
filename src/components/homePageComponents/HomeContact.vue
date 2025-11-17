@@ -5,17 +5,18 @@
     <div>
       <h2>Contact Me!</h2>
       <p>
-        For contracting inquiries, please call <a href="tel:+1(405)541-6780">(405)541-6780</a>.
-        Otherwise, if you have any questions, please refer to the <a href="#">FAQ</a>. If you don't
-        see an answer for your question, feel free to ask in the form
-        <router-link to="/contact">here</router-link>.
+        If you have any questions, please refer to the <router-link to="/faq">faq</router-link>. If you don't
+        see an answer for your question, feel free to ask in the
+        <router-link to="/contact">form</router-link> or simply <a href="mailto:tristancarter2772@gmail.com">email me</a>.
       </p>
     </div>
   </section>
 </template>
 
 <style scoped>
-#home-contact {
+section#home-contact {
+  margin-top: 80px;
+  min-height: 25%;
   background-image: linear-gradient(
     135deg,
     var(--secondary),
@@ -28,10 +29,10 @@
   color: black;
   text-align: center;
   div {
-    margin: 12% 0;
+    margin: auto 0;
     h2 {
       color: black;
-      margin-bottom: var(--md-gap);
+      padding-bottom: var(--md-gap);
     }
     p {
       line-height: var(--lh2);

@@ -10,6 +10,11 @@ const router = createRouter({
       component: HomeView,
     },
     {
+      path: '/services',
+      name: 'services',
+      component: () => import('../views/ServicesPage.vue'),
+    },
+    {
       path: '/projects',
       name: 'projects',
       component: () => import('../views/ProjectsPage.vue'),
@@ -34,6 +39,11 @@ const router = createRouter({
       path: '/about',
       name: 'about',
       component: () => import('../views/AboutPage.vue'),
+    },
+    {
+      path: '/faq',
+      name: 'faq',
+      component: () => import('../views/FaqPage.vue'),
     },
   ],
 })
