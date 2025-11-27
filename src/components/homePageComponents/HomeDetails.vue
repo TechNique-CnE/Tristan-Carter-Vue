@@ -28,7 +28,7 @@
   background-color: var(--bg);
   img {
     aspect-ratio: 1/1;
-    width: 35%;
+    width: clamp(300px, 30vw, 450px);
     border-radius: 50%;
     box-shadow: var(--primary-shadow3);
   }
@@ -58,4 +58,28 @@
     }
   }
 }
+@media screen and (max-width: 900px) {
+  #home {
+    flex-direction: column;
+    text-align: center;
+    #home-details {
+      h2 {
+        text-align: center;
+      }
+    }
+  }
+}
+@media screen and (max-width: 1000px) {
+  #home {
+    #home-details {
+      h1 {
+        font-size: var(--fs-lg);
+      }
+      h2 {
+        font-size: var(--fs-md);
+      }
+    }
+  }
+}
+
 </style>
