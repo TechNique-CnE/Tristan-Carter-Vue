@@ -44,6 +44,7 @@ body {
   font-size: var(--fs-sm);
   scroll-behavior: smooth;
   letter-spacing: 1pt;
+  overflow-x: hidden;
 }
 main {
   width: 100%;
@@ -56,6 +57,7 @@ section {
   backdrop-filter: blur(10px);
   border-radius: 25px;
   border: 2px solid transparent;
+  z-index: 15;
 }
 
 h2 {

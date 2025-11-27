@@ -2,15 +2,21 @@
 import { RouterLink } from 'vue-router'
 import AnimatedText from './animationComponents/AnimatedText.vue'
 // import ThemeBtn from './ThemeBtn.vue'
+import { useMediaQuery } from "@vueuse/core";
+
+const isMobileScreen = useMediaQuery('(max-width: 700px)')
+
+
 </script>
 
 <template>
   <header>
-    <!-- logo -->
-    <div class="container">
+    <div class="container" :class="{'mobile': isMobileScreen}">
+      <!-- logo -->
       <router-link to="/"><img src="/public/tc-logo.PNG" alt="Tristan Carter Logo" /></router-link>
+
+      <!-- links -->
       <nav>
-        <!-- links -->
         <router-link class="nav-link" to="/services">
           <AnimatedText>Services</AnimatedText>
         </router-link>
@@ -26,6 +32,7 @@ import AnimatedText from './animationComponents/AnimatedText.vue'
         <router-link class="nav-link" to="/about">
           <AnimatedText>About</AnimatedText>
         </router-link>
+
         <!-- Hide on lower bandwidth devices or prefers reduced motion -->
         <!-- <ThemeBtn /> -->
       </nav>
@@ -37,18 +44,17 @@ import AnimatedText from './animationComponents/AnimatedText.vue'
 header {
   width: 100%;
   background-color: var(--bg2);
-  padding: var(--sm-gap);
   backdrop-filter: blur(10px);
   border-bottom: var(--border);
   z-index: 10;
   margin-bottom: 60px;
 
   .container {
+    padding: var(--md-gap) 0 0;
     width: var(--content-width);
     margin: 0 auto;
     display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
+    align-items: center;
     gap: var(--md-gap);
 
     a img {
@@ -61,11 +67,11 @@ header {
     }
 
     nav {
+      flex-grow: 1;
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       align-items: flex-end;
       justify-content: space-around;
-      width: 75%;
       margin: 0 auto;
 
       .nav-link {
@@ -89,5 +95,12 @@ header {
       }
     }
   }
-}
-</style>
+
+  .container.mobile
+
+    nav{
+      justify-content: flex-start;
+      flex-wrap: wrap;
+    }
+  }
+  </style>
