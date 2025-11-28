@@ -1,3 +1,7 @@
+<script setup>
+import AllServices from '@/components/servicesPageComponents/AllServices.vue';
+</script>
+
 <template>
-  <h1>Services Page</h1>
+  <AllServices />
 </template>

@@ -65,7 +65,7 @@ defineProps(['id', 'title', 'image', 'smallDesc', 'about', 'link1', 'link2'])
   background-color: var(--body-bg);
 }
 
-@media screen and (max-width: 810px) {
+@media screen and (max-width: 850px) {
   .project-card {
     max-width: 400px;
   }

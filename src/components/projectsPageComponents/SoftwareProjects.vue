@@ -89,4 +89,34 @@ const softwareProjectData = projectData.filter((project) => project.category == 
     text-align: right;
   }
 }
+
+@media screen and (max-width: 800px) {
+  .project-card{
+    flex-direction: column;
+    align-items: center;
+    padding-left: 0;
+
+    img {
+      width: 75%;
+    }
+    .details div.links {
+      text-align: right;
+    }
+  }
+
+  .project-card:nth-child(even) {
+    text-align: left;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 0;
+    border-right: solid 2px var(--bg);
+    border-left: solid 6px var(--primary);
+    border-radius: 0 20px 20px 0;
+    background-image: linear-gradient(225deg, var(--bg2), var(--bg2), var(--bg));
+
+  }
+  .details div.links {
+    text-align: left;
+  }
+}
 </style>
