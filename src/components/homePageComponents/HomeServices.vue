@@ -54,6 +54,7 @@ section {
   h3 {
     padding-bottom: var(--sm-gap);
     text-align: center;
+    transition: var(--transition);
   }
 
   p {
@@ -81,5 +82,32 @@ section {
 }
 .service-card:nth-child(4) {
   transform-origin: right bottom;
+}
+
+@media screen and (max-width: 850px) {
+  .services-container {
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(1fr);
+  gap: var(--lg-gap);
+  text-align: left;
+}
+  .service-card {
+
+    h3 {
+      padding: 0 var(--sm-gap);
+      padding-bottom: var(--sm-gap);
+      text-align: left;
+    }
+
+    p {
+    text-align: left;
+  }
+  }
+  .service-card:nth-child(1),
+  .service-card:nth-child(2),
+  .service-card:nth-child(3),
+  .service-card:nth-child(4) {
+  transform-origin: center bottom;
+}
 }
 </style>

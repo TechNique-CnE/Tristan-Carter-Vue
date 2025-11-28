@@ -4,15 +4,24 @@ import jsonData from '../../assets/projects.json'
 const projectData = jsonData.projects
 const featuredProjectData = projectData.filter((project) => project.featured)
 
-import { ref, computed, onMounted } from 'vue'
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue'
 const currentIndex = ref(0)
 const cards = ref([])
 const maxIndex = computed(() => featuredProjectData.length - 1)
 
 onMounted(() => {
   cards.value[currentIndex.value]?.$el.classList.add("active")
-
+  scrollToCard(currentIndex.value)
+  window.addEventListener('resize', handleResize)
 })
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', handleResize)
+})
+
+const handleResize = () => {
+  scrollToCard(currentIndex.value)
+}
 
 const scrollToCard = (index) => {
   animateScrollToCard(index, 600)
@@ -81,9 +90,9 @@ const nextSlide = () => {
 <template>
   <section id="home-projects">
     <h2>Featured Projects</h2>
-    <div class="carousel-container">
+    <div class="carousel-container" >
       <button type="button" @click="previousSlide" :disabled="currentIndex == 0">L</button>
-      <div class="carousel-track">
+      <div class="carousel-track" >
         <div class="carousel">
           <HomeProjectCard
             v-for="(projects, index) in featuredProjectData"
@@ -108,6 +117,7 @@ const nextSlide = () => {
 <style scoped>
 #home-projects {
   background-color: var(--bg);
+
   .carousel-container {
     display: flex;
     flex-direction: row;
@@ -189,4 +199,48 @@ const nextSlide = () => {
     scale: 1.1;
   }
 }
+
+@media screen and (max-width: 1100px){
+  #home-projects {
+    padding: var(--lg-gap) var(--sm-gap);
+    .carousel-container {
+      .carousel-track {
+        -webkit-mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 10%,
+        black 90%,
+        black 10%,
+        transparent
+      );
+      -webkit-mask-composite: destination-in;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-size: 100% 100%;
+      mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 10%,
+        black 90%,
+        black 10%,
+        transparent
+      );
+      mask-repeat: no-repeat;
+      mask-composite: intersect;
+      mask-size: 100% 100%;
+      }
+    }
+  }
+}
+@media screen and (max-width: 600px){
+  #home-projects {
+    padding: var(--lg-gap) var(--sm-gap);
+    .carousel-container {
+      .carousel-track {
+        -webkit-mask-image: none;
+      mask-image: none;
+      }
+    }
+  }
+}
+
 </style>

@@ -17,7 +17,6 @@ defineProps(['id', 'title', 'image', 'smallDesc', 'about', 'link1', 'link2'])
 <style scoped>
 .project-card {
   width: 65%;
-  max-width: 480px;
   max-width: 580px;
   padding-top: var(--md-gap);
   border: 2px solid var(--primary);
@@ -64,5 +63,16 @@ defineProps(['id', 'title', 'image', 'smallDesc', 'about', 'link1', 'link2'])
 
 .project-card:hover, .project-card.active{
   background-color: var(--body-bg);
+}
+
+@media screen and (max-width: 810px) {
+  .project-card {
+    max-width: 400px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .project-card {
+    max-width: 350px;
+  }
 }
 </style>
