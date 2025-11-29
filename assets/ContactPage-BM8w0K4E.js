@@ -1,1 +1,0 @@
-import{_ as t,c as a,o as n,a as o}from"./index-B8KMt_SX.js";const c={};function s(r,e){return n(),a("main",null,[...e[0]||(e[0]=[o("h2",null,"This is the contact page",-1)])])}const _=t(c,[["render",s]]);export{_ as default};
