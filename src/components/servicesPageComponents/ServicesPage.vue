@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import ServicesList from '../servicesPageComponents/ServicesList.vue';
+import ServicesList from './ServicesList.vue';
 
 </script>
 
 <template>
   <section>
-    <h2>What I Do</h2>
+    <h2>My Services</h2>
     <ServicesList />
   </section>
 </template>

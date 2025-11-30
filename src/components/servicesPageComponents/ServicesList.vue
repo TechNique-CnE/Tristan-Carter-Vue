@@ -1,41 +1,35 @@
 <template>
-  <section>
-    <h2>My Services</h2>
-    <div class="services-container">
-      <div class="service-card">
-        <h3>Web Design</h3>
-        <p>Taking an idea or napkin sketch and designing a clean, modern, website out of it.</p>
-      </div>
-      <div class="service-card">
-        <h3>Full-Stack Development</h3>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad molestias placeat deleniti,
-          nostrum itaque quas, praesentium numquam quia sit temporibus quos perspiciatis ipsam,
-          consequatur vero minus esse officiis! Eos, esse.
-        </p>
-      </div>
-      <div class="service-card">
-        <h3>SEO</h3>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure voluptas totam ipsum
-          accusamus dignissimos explaining the service.
-        </p>
-      </div>
-      <div class="service-card">
-        <h3>This is a service</h3>
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure voluptas Lorem ipsum dolor
-          sit amet. totam ipsum accusamus dignissimos magnam explaining the service.
-        </p>
-      </div>
-    </div>
-  </section>
+<div class="services-container">
+  <div class="service-card">
+    <h3>Web Design</h3>
+    <p>Taking an idea or napkin sketch and designing a clean, modern, website out of it.</p>
+  </div>
+  <div class="service-card">
+    <h3>Full-Stack Development</h3>
+    <p>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad molestias placeat deleniti,
+      nostrum itaque quas, praesentium numquam quia sit temporibus quos perspiciatis ipsam,
+      consequatur vero minus esse officiis! Eos, esse.
+    </p>
+  </div>
+  <div class="service-card">
+    <h3>SEO</h3>
+    <p>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure voluptas totam ipsum
+      accusamus dignissimos explaining the service.
+    </p>
+  </div>
+  <div class="service-card">
+    <h3>This is a service</h3>
+    <p>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure voluptas Lorem ipsum dolor
+      sit amet. totam ipsum accusamus dignissimos magnam explaining the service.
+    </p>
+  </div>
+</div>
 </template>
 
 <style scoped>
-section {
-  background-color: var(--bg2);
-}
 .services-container {
   display: grid;
   grid-template-columns: 2fr 2fr;
@@ -86,8 +80,8 @@ section {
 
 @media screen and (max-width: 850px) {
   .services-container {
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(1fr);
+  display: flex;
+  flex-direction: column;
   gap: var(--lg-gap);
   text-align: left;
 }

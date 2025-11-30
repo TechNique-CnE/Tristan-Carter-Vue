@@ -1,7 +1,7 @@
 <script setup>
-import AllServices from '@/components/servicesPageComponents/AllServices.vue';
+import ServicesPage from '@/components/servicesPageComponents/ServicesPage.vue';
 </script>
 
 <template>
-  <AllServices />
+  <ServicesPage />
 </template>
