@@ -39,7 +39,7 @@ defineProps(['id', 'title', 'image', 'smallDesc', 'about', 'link1', 'link2'])
   }
   p {
     text-align: center;
-    padding: var(--sm-gap) var(--sm-gap);
+    padding: var(--sm-gap);
     line-height: var(--lh2);
   }
   div.links {
@@ -73,6 +73,18 @@ defineProps(['id', 'title', 'image', 'smallDesc', 'about', 'link1', 'link2'])
 @media screen and (max-width: 650px) {
   .project-card {
     max-width: 350px;
+  }
+}
+@media screen and (max-width: 475px) {
+  .project-card {
+    max-width: 300px;
+
+    img {
+      width: 80%;
+    }
+    p, div.links {
+      font-size: var(--fs-xs);
+    }
   }
 }
 </style>

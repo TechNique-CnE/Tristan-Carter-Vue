@@ -16,7 +16,7 @@ import HomeServices from '@/components/homePageComponents/HomeServices.vue';
     <hr class="divider" />
     <!-- ------------------ Projects ----------------- -->
     <HomeProjects />
-    <!-- <hr class="divider" /> -->
+    <hr class="divider" />
     <!-- ------------------ Blog --------------------- -->
     <!-- <HomeBlog /> -->
     <!-- <hr class="divider" /> -->

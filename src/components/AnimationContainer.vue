@@ -20,7 +20,7 @@ const { animationClass } = inject('animationClass')
   inset: 0;
   width: 99%;
   margin: 0 auto;
-  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   pointer-events: none;
   z-index: -10;

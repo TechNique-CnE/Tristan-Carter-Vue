@@ -231,13 +231,25 @@ const nextSlide = () => {
     }
   }
 }
-@media screen and (max-width: 600px){
+@media screen and (max-width: 550px){
   #home-projects {
-    padding: var(--lg-gap) var(--sm-gap);
+    padding: var(--lg-gap) 0;
+
     .carousel-container {
       .carousel-track {
         -webkit-mask-image: none;
-      mask-image: none;
+        mask-image: none;
+      }
+    }
+  }
+}
+@media screen and (max-width:425px) {
+  #home-projects {
+
+    .carousel-container {
+      button {
+        min-width: 30px;
+        height: 30px;
       }
     }
   }

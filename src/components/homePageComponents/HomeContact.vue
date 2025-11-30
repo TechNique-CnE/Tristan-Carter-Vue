@@ -36,7 +36,7 @@ section#home-contact {
     }
     p {
       line-height: var(--lh2);
-      font-size: var(--fs-md);
+      font-size: var(--fs-sm);
       a {
         color: black;
       }

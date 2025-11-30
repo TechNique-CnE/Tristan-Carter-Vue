@@ -25,6 +25,7 @@
   --fs-lg: 34px;
   --fs-md: 28px;
   --fs-sm: 20px;
+  --fs-xs: 18px;
 }
 
 *,
@@ -41,7 +42,7 @@ body {
   background-color: var(--body-bg);
   position: relative;
   color: var(--text-color);
-  font-size: var(--fs-sm);
+  font-size: var(--fs-xs);
   scroll-behavior: smooth;
   letter-spacing: 1pt;
   overflow-x: hidden;
@@ -87,3 +88,15 @@ hr.divider {
 /* --shadow: ; */
 /* --shadow-heavy: ; */
 /* --border2: ; */
+
+@media screen and (max-width: 500px) {
+  :root {
+    --content-width: 100%;
+  }
+  section {
+    border-radius: 0;
+  }
+  hr.divider {
+    height: 10dvh;
+  }
+}
