@@ -29,6 +29,8 @@ footer {
   ul {
     width: var(--content-width);
     display: flex;
+    flex-wrap: wrap;
+    gap: var(--sm-gap);
     justify-content: space-around;
     flex-direction: row;
     align-items: center;

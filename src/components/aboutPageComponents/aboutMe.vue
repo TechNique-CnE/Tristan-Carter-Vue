@@ -8,7 +8,7 @@
       <div class="details">
         <h2>About Me</h2>
         <p>
-          I am a freelance full-stack web developer who loves building smooth, responsive,
+          I am a freelance full-stack web developer that loves building smooth, responsive,
           user-focused experiences with Nuxt. I enjoy turning ideas into performant, accessible
           websites and apps with an intuitive design. I am always learning and expanding my skills,
           from full-stack development to experimenting with the Unity game engine and even hands-on
@@ -31,7 +31,8 @@ section {
     justify-content: center;
     gap: var(--lg-gap);
     img {
-      width: 30%;
+      align-self: center;
+      width: clamp(300px, 30%, 500px);
       aspect-ratio: 1/1;
       border-radius: 15px;
     }
@@ -44,6 +45,19 @@ section {
       line-height: var(--lh2);
       h2{
         padding-bottom: var(--md-gap);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 940px) {
+  section {
+    div.about-container {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      img {
+        width: 40vw;
       }
     }
   }
