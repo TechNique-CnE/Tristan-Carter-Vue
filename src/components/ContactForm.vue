@@ -1,50 +1,51 @@
 <script setup>
 import { ref } from 'vue';
+import { CgSpinner } from "vue-icons-plus/cg";
 
-const formName = ref("")
-const formEmail = ref("")
-const formNumber = ref("")
-const formSubject = ref("")
-const formMessage = ref("")
+const form = ref({
+  name: "",
+  email: '',
+  number:'',
+  subject: '',
+  message: '',
+})
 
 const loading = ref(false)
-const status = ref(null)
-const statusMessage = ref("")
+const status = ref("")
+const toast = ref("")
 
-const closeToast = () => {
-  statusMessage.value = ''
-}
-
-const submitForm = async () => {
-  status.value = null
-  statusMessage.value = ""
+async function submitForm() {
   loading.value = true
+  status.value = ""
+  const body = new FormData()
+  body.append("name", form.value.name)
+  body.append("email", form.value.email)
+  body.append("number", form.value.number)
+  body.append("subject", form.value.subject)
+  body.append("message", form.value.message)
+  const result = await fetch("https://script.google.com/macros/s/AKfycbxRMNLC3jcIw5FGXDtKhITTd78iLEgABFxm7CtihPdqJEDuyhIs_Dkc--8QAfRxsq5PzQ/exec", {
+    method: "POST",
+    body
+  })
+  const data = await result.json()
 
-  try {
-    const result = await fetch("https://script.google.com/macros/s/AKfycbzGW80D4fWrsfupni4wPB3E4UkvlzTwPFe4T3BN-Ev8N_1t1vq2oH-x4GmN-EqnOmDn0Q/exec", {
-      method: "POST",
-      body: JSON.stringify({
-        name: formName.value,
-        email: formEmail.value,
-        number: formNumber.value,
-        subject: formSubject.value,
-        message: formMessage.value
-      }),
-      headers: { "Content-Type": "application/json"}
-    });
-    const data = await result.json()
-    if (data.success) {
-      status.value = "success"
-      statusMessage.value = data.message
-    } else {
-      status.value = "error"
-      statusMessage.value = data.message || "An unknown error occured"
-    }
-  } catch (error) {
+  if (data.status==='success') {
+    toast.value = 'Message sent!'
+    status.value = "success"
+    form.value.name = ''
+    form.value.email = ''
+    form.value.number = ''
+    form.value.subject = ''
+    form.value.message = ''
+  } else {
+    toast.value = "An error occured!"
     status.value = "error"
-    statusMessage.value = error.message
   }
+
   loading.value = false
+  setTimeout(() => {
+    toast.value = ""
+  }, 5000);
 }
 
 </script>
@@ -55,24 +56,30 @@ const submitForm = async () => {
         <p>Have a Question? Check out the FAQ first!</p>
 
         <form method="post" name="contact-form" id="form-data">
-            <div id="input-group" :disabled="loading">
+            <div id="input-group" >
               <div>
-                <input type="text" v-model="formName" placeholder="Full Name" name="name">
-                <input type="email" v-model="formEmail" placeholder="Email" name="email">
-                <input type="number" v-model="formNumber" placeholder="Phone Number" name="number">
-                <input type="text" v-model="formSubject" placeholder="Subject" name="subject">
+                <input type="text" v-model="form.name" :disabled="loading" placeholder="Full Name" name="name">
+                <input type="email" v-model="form.email" :disabled="loading" placeholder="Email" name="email">
+                <input type="number" v-model="form.number" :disabled="loading" placeholder="Phone Number" name="number">
+                <input type="text" v-model="form.subject" :disabled="loading" placeholder="Subject" name="subject">
               </div>
               <div>
-                <textarea name="message" v-model="formMessage" cols="30" rows="9" placeholder="Your Message"></textarea>
+                <textarea name="message" v-model="form.message" cols="30" rows="9" placeholder="Your Message"></textarea>
               </div>
             </div>
             <div id="submission">
-                <button id="submit-btn" type="submit" :disabled="loading" @submit.prevent="submitForm">Send Message</button>
+                <button id="submit-btn" type="submit" :disabled="loading" @click="submitForm">Send Message</button>
             </div>
-            <teleport v-if="statusMessage" to="body"><div id="formToast"><button @click="closeToast">X</button><p>{{ statusMessage }}</p></div></teleport>
 
-        </form>
-      </section>
+          </form>
+        </section>
+        <teleport to="body"><div v-if="toast || loading" id="formToast" :class="{'error': status==='error', 'loading': loading}">
+          <button v-if="!loading" @click="toast=''">X</button>
+          <p v-if="!loading">{{ toast }}</p>
+          <p v-if="loading">
+            <CgSpinner />
+          </p>
+        </div></teleport>
     </template>
 
 <style scoped>
@@ -123,8 +130,16 @@ const submitForm = async () => {
   border-radius: 15px;
   resize: none;
 }
-button {
-  margin-top: var(--md-gap);
+
+#input-group input:disabled,
+#input-group textarea:disabled {
+  cursor: progress;
+}
+
+#submission {
+
+  button {
+    margin-top: var(--md-gap);
   font-size: var(--fs-sm);
   display: inline-block;
   padding: var(--sm-gap) var(--md-gap);
@@ -136,10 +151,71 @@ button {
   font-weight: 600;
   transition: 0.3s ease-in-out;
   cursor: pointer;
-}
-button:hover {
+  }
+  button:hover {
   transform: scale(1.05);
   box-shadow: var(--primary-shadow2);
+  }
+}
+#formToast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: var(--sm-gap) var(--md-gap);
+  background-color: var(--content-bg);
+  border: var(--border);
+  border-radius:10px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--md-gap);
+  color: var(--primary);
+  backdrop-filter: blur(10px);
+
+  button {
+    aspect-ratio: 1/1;
+    padding: 5px;
+    border: var(--border);
+    background-color: transparent;
+    border-radius: 50%;
+    box-shadow: none;
+    align-self: flex-end;
+    color: var(--primary);
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  button:hover {
+    transform: scale(1.1);
+  }
+}
+#formToast.error {
+  border-color: red;
+
+  p{
+    color: white;
+  }
+}
+#formToast.loading {
+  padding: var(--lg-gap) var(--xl-gap);
+  bottom: 50%;
+  right: 50%;
+  transform: translate(50%, 50%);
+
+  p{
+    width: max-content;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    transform-origin: center center;
+    animation: loading 1s linear infinite ;
+  }
+}
+
+@keyframes loading {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
 }
 
 @media screen and (max-width: 600px) {
