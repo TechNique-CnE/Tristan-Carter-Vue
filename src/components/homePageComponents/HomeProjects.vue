@@ -1,4 +1,5 @@
 <script setup>
+import { BiLeftArrowAlt, BiRightArrowAlt } from "vue-icons-plus/bi";
 import HomeProjectCard from './HomeProjectCard.vue'
 import jsonData from '../../assets/projects.json'
 const projectData = jsonData.projects
@@ -91,7 +92,7 @@ const nextSlide = () => {
   <section id="home-projects">
     <h2>Featured Projects</h2>
     <div class="carousel-container" >
-      <button type="button" @click="previousSlide" :disabled="currentIndex == 0">L</button>
+      <button type="button" @click="previousSlide" :disabled="currentIndex == 0"><BiLeftArrowAlt /></button>
       <div class="carousel-track" >
         <div class="carousel">
           <HomeProjectCard
@@ -108,9 +109,9 @@ const nextSlide = () => {
           ></HomeProjectCard>
         </div>
       </div>
-      <button type="button" :disabled="currentIndex == maxIndex" @click="nextSlide">R</button>
+      <button type="button" :disabled="currentIndex == maxIndex" @click="nextSlide"><BiRightArrowAlt /></button>
     </div>
-    <router-link to="/projects" class="int-link">See All Projects -></router-link>
+    <router-link to="/projects" class="int-link">See All Projects <BiRightArrowAlt /></router-link>
   </section>
 </template>
 
@@ -125,18 +126,21 @@ const nextSlide = () => {
 
     button {
       min-width: 50px;
+      max-width: 50px;
       height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       border-radius: 50%;
       border: var(--border);
       background-color: transparent;
       color: var(--primary);
       font-weight: bold;
       cursor: pointer;
-      transition: var(--transition);
+      transition: box-shadow var(--transition);
     }
     button:hover {
       box-shadow: var(--primary-shadow);
-      text-shadow: var(--primary-shadow);
     }
     button:disabled {
       color: var(--accent);
@@ -178,6 +182,7 @@ const nextSlide = () => {
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
+        align-items: center;
         gap: var(--xl-gap);
         scroll-snap-type: x mandatory;
       }

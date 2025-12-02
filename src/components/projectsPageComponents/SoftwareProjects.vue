@@ -1,4 +1,5 @@
 <script setup>
+import { BiFolderOpen, BiLinkExternal } from "vue-icons-plus/bi";
 import jsonData from '../../assets/projects.json'
 const projectData = jsonData.projects
 const softwareProjectData = projectData.filter((project) => project.category == 'software')
@@ -14,8 +15,8 @@ const softwareProjectData = projectData.filter((project) => project.category == 
           <h3>{{ projects.title }}</h3>
           <p>{{ projects.about }}</p>
           <div class="links">
-            <a :href="projects.link1" target="_blank">Website</a>
-            <a :href="projects.link2" target="_blank">Repo</a>
+            <a :href="projects.link1" target="_blank">Website<BiLinkExternal /></a>
+            <a :href="projects.link2" target="_blank">Repo<BiFolderOpen/></a>
           </div>
         </div>
       </div>
@@ -38,6 +39,7 @@ const softwareProjectData = projectData.filter((project) => project.category == 
   text-align: left;
   display: flex;
   flex-direction: row;
+  align-items: center;
   padding-left: var(--md-gap);
   background-image: linear-gradient(45deg, var(--bg), var(--bg2), var(--bg2));
   background-repeat: no-repeat;
@@ -66,12 +68,25 @@ const softwareProjectData = projectData.filter((project) => project.category == 
     div.links {
       padding-bottom: var(--sm-gap);
       text-align: left;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: flex-end;
+      gap: var(--sm-gap);
       a {
         color: var(--primary);
+        transition: scale var(--transition);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 3px;
       }
       a:nth-child(2) {
         padding-left: var(--sm-gap);
         color: var(--secondary);
+      }
+      a:hover {
+        scale: 1.1;
       }
     }
   }
@@ -90,7 +105,7 @@ const softwareProjectData = projectData.filter((project) => project.category == 
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
   .project-card{
     flex-direction: column;
     align-items: center;
@@ -118,5 +133,15 @@ const softwareProjectData = projectData.filter((project) => project.category == 
   .details div.links {
     text-align: left;
   }
+}
+@media screen and (max-width:500px) {
+    div.details {
+      padding: var(--sm-gap);
+
+      p{
+        padding-right: 0px;
+      }
+    }
+
 }
 </style>

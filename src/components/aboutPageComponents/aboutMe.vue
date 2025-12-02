@@ -57,7 +57,7 @@ section {
       justify-content: center;
       align-items: center;
       img {
-        width: 40vw;
+        width: 50vw;
       }
     }
   }

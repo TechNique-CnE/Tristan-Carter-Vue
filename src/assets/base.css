@@ -89,12 +89,13 @@ hr.divider {
 /* --shadow-heavy: ; */
 /* --border2: ; */
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 520px) {
   :root {
     --content-width: 100%;
   }
   section {
     border-radius: 0;
+    padding: var(--md-gap) var(--sm-gap);
   }
   hr.divider {
     height: 10dvh;

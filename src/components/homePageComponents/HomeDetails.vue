@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import { BiLogoGithub, BiLogoInstagramAlt, BiLogoMeta, BiLogoLinkedinSquare } from 'vue-icons-plus/bi';
+</script>
 
 <template>
   <section id="home">
@@ -14,6 +16,23 @@
         I am passionate about contributing clean, accessible, and responsive code while delivering
         fully functional and beautiful products to clients.
       </p>
+      <div class="social-links">
+        <div class="links">
+          <a href="https://www.linkedin.com/in/tristan27/" target="_blank">
+            <BiLogoLinkedinSquare />
+          </a>
+          <a href="https://github.com/Tristan2772" target="_blank">
+            <BiLogoGithub />
+          </a>
+          <a href="https://www.instagram.com/technique.cne/" target="_blank">
+            <BiLogoInstagramAlt />
+          </a>
+          <a href="https://www.facebook.com/TechNique.CnE/" target="_blank">
+            <BiLogoMeta />
+          </a>
+        </div>
+        <router-link to="/contact" class="contact-btn">Contact Me!</router-link>
+      </div>
     </div>
   </section>
 </template>
@@ -38,7 +57,6 @@
 
     h1 {
       font-size: 42px;
-      margin-bottom: var(--md-gap);
       span {
         color: var(--primary);
         font-family: var(--header-font);
@@ -47,26 +65,68 @@
     h2 {
       text-align: left;
       color: var(--text-color);
+      padding-bottom: var(--sm-gap);
       span {
         color: var(--primary);
         font-family: var(--header-font);
       }
     }
     p {
+      padding-left: var(--sm-gap);
       line-height: var(--lh2);
-      margin-bottom: var(--md-gap);
     }
   }
 }
-@media screen and (max-width: 900px) {
-  #home {
-    flex-direction: column;
-    text-align: center;
-    #home-details {
-      h2 {
-        text-align: center;
-      }
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--md-gap);
+
+  .links {
+    padding-top: var(--md-gap);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--md-gap);
+
+    a {
+      width: 50px;
+      aspect-ratio: 1/1;
+      border: var(--border);
+      border-radius: 50%;
+      transition: ease-out 350ms;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
     }
+    a:hover {
+      scale: 1.1;
+      color: black;
+      background-color: var(--primary);
+      box-shadow: var(--primary-shadow);
+      transition: var(--transition);
+    }
+  }
+  .contact-btn {
+    height: 50px;
+    width: 150px;
+    color: black;
+    border: var(--border);
+    border-radius: 25px;
+    transition: ease-out 350ms;
+    background-color: var(--primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .contact-btn:hover {
+    scale: 1.1;
+    box-shadow: var(--primary-shadow);
+    transition: var(--transition);
   }
 }
 @media screen and (max-width: 1000px) {
@@ -79,6 +139,11 @@
         font-size: var(--fs-md);
       }
     }
+  }
+}
+@media screen and (max-width: 900px) {
+  #home {
+    flex-direction: column;
   }
 }
 

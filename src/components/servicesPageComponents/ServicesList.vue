@@ -41,6 +41,9 @@
   padding: var(--sm-gap);
   border: 2px solid var(--accent);
   border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sm-gap);
   transition:
     border var(--transition),
     scale var(--transition);
@@ -89,7 +92,7 @@
 
     h3 {
       padding: 0 var(--sm-gap);
-      padding-bottom: var(--sm-gap);
+      padding-bottom: 0px;
       text-align: left;
     }
 

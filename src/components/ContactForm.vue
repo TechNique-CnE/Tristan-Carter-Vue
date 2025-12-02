@@ -53,7 +53,7 @@ async function submitForm() {
 <template>
   <section id="contact">
         <h2 class="heading">Contact</h2>
-        <p>Have a Question? Check out the FAQ first!</p>
+        <p>Have a Question? Check out the <RouterLink to="/faq">faq</RouterLink> first!</p>
 
         <form method="post" name="contact-form" id="form-data">
             <div id="input-group" >
@@ -90,8 +90,12 @@ async function submitForm() {
     padding-bottom: 20px;
   }
   p {
-    text-align: left;
+    text-align: center;
     padding-bottom: var(--md-gap);
+
+    a {
+      color: var(--txt-color);
+    }
   }
 }
 #contact form{
@@ -203,7 +207,6 @@ async function submitForm() {
   p{
     width: max-content;
     aspect-ratio: 1/1;
-    border-radius: 50%;
     transform-origin: center center;
     animation: loading 1s linear infinite ;
   }

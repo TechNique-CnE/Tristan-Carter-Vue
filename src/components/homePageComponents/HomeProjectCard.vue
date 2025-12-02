@@ -1,5 +1,7 @@
 <script setup>
+import { BiLinkExternal, BiFolderOpen } from "vue-icons-plus/bi";
 defineProps(['id', 'title', 'image', 'smallDesc', 'about', 'link1', 'link2'])
+
 </script>
 
 <template>
@@ -8,8 +10,8 @@ defineProps(['id', 'title', 'image', 'smallDesc', 'about', 'link1', 'link2'])
     <h3>{{ title }}</h3>
     <p>{{ about }}</p>
     <div class="links">
-      <a :href="link1" target="_blank">Website</a>
-      <a :href="link2" target="_blank">Repo</a>
+      <a :href="link1" target="_blank">Website <BiLinkExternal /> </a>
+      <a :href="link2" target="_blank">Repo <BiFolderOpen /> </a>
     </div>
   </div>
 </template>
@@ -45,18 +47,25 @@ defineProps(['id', 'title', 'image', 'smallDesc', 'about', 'link1', 'link2'])
   div.links {
     padding-right: var(--md-gap);
     padding-bottom: var(--sm-gap);
-    text-align: right;
-    flex-grow: 2;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-items: flex-end;
+    gap: var(--sm-gap);
     a {
       padding-left: var(--sm-gap);
       color: var(--primary);
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 3px;
+      transition: scale var(--transition);
     }
     a:nth-child(2) {
       color: var(--secondary);
+    }
+    a:hover {
+      scale: 1.1;
     }
   }
 }
