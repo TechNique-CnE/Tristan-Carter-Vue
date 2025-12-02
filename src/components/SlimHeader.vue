@@ -1,36 +1,72 @@
 <script setup>
-import { RouterLink } from 'vue-router'
+import { ref, watchEffect } from "vue";
+import { RouterLink, useRoute } from 'vue-router'
 import AnimatedText from './animationComponents/AnimatedText.vue'
 // import ThemeBtn from './ThemeBtn.vue'
-import { useMediaQuery } from "@vueuse/core";
 
-const isMobileScreen = useMediaQuery('(max-width: 700px)')
+const route = useRoute()
+const activeBase = ref('')
 
+const home = "/"
+const services = "/services"
+const projects = "/projects"
+const contact = "/contact"
+const about = "/about"
+
+watchEffect(() => {
+  const currentBase = route.path
+
+  switch (true) {
+    case currentBase===home || currentBase.startsWith(home + '/'):
+      activeBase.value=home
+      break;
+    case currentBase===services || currentBase.startsWith(services + '/'):
+      activeBase.value=services
+      break;
+    case currentBase===projects || currentBase.startsWith(projects + '/'):
+      activeBase.value=projects
+      break;
+    case currentBase===contact || currentBase.startsWith(contact + '/'):
+      activeBase.value=contact
+      break;
+    case currentBase===about || currentBase.startsWith(about + '/'):
+      activeBase.value=about
+      break;
+
+    default:
+      activeBase.value = ''
+      break;
+  }
+})
 
 </script>
 
 <template>
   <header>
-    <div class="container" :class="{'mobile': isMobileScreen}">
+    <div class="container">
       <!-- logo -->
       <router-link to="/"><img src="/public/tc-logo.PNG" alt="Tristan Carter Logo" /></router-link>
 
       <!-- links -->
       <nav>
-        <router-link class="nav-link" to="/services">
+        <router-link class="nav-link" to="/services" :class="{active: activeBase === '/services'}">
           <AnimatedText>Services</AnimatedText>
+          <!-- <p v-if="!is-active">Services</p> -->
         </router-link>
-        <router-link class="nav-link" to="/projects">
+        <router-link class="nav-link" to="/projects" :class="{active: activeBase === '/projects'}">
           <AnimatedText>Projects</AnimatedText>
+          <!-- <p v-if="!is-active">Projects</p> -->
         </router-link>
         <!-- <router-link class="nav-link" to="/blog">
           <AnimatedText>Blog</AnimatedText>
         </router-link> -->
-        <router-link class="nav-link" to="/contact">
+        <router-link class="nav-link" to="/contact" :class="{active: activeBase === '/contact'}">
           <AnimatedText>Contact</AnimatedText>
+          <!-- <p v-if="!is-active">Contact</p> -->
         </router-link>
-        <router-link class="nav-link" to="/about">
+        <router-link class="nav-link" to="/about" :class="{active: activeBase === '/about'}">
           <AnimatedText>About</AnimatedText>
+          <!-- <p v-if="!is-active">About</p> -->
         </router-link>
 
         <!-- Hide on lower bandwidth devices or prefers reduced motion -->
@@ -87,20 +123,31 @@ header {
         border: none;
         border: 2px solid transparent;
       }
-
       .nav-link:hover {
+        border-bottom: 2px solid var(--primary);
+        color: var(--primary);
+        scale: 1.05;
+      }
+      .nav-link.active {
         border-bottom: 2px solid var(--primary);
         color: var(--primary);
         scale: 1.05;
       }
     }
   }
+}
 
-  .container.mobile
+  @media screen and (max-width:700px) {
+    header {
 
-    nav{
-      justify-content: flex-start;
-      flex-wrap: wrap;
+      .container{
+        nav{
+          justify-content: flex-start;
+          flex-wrap: wrap;
+        }
+      }
     }
   }
+
+
   </style>

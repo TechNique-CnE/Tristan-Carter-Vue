@@ -42,7 +42,6 @@ function setActiveCard(index) {
 
 function animateScrollToCard(index, duration = 600) {
   const cardEl = cards.value[index]?.$el
-  console.log(currentIndex.value)
   const trackEl = document.querySelector('.carousel-track')
   if (!cardEl || !trackEl) return
 
@@ -199,6 +198,9 @@ const nextSlide = () => {
     text-align: right;
     color: var(--primary);
     transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 3px;
   }
   a.int-link:hover {
     scale: 1.1;

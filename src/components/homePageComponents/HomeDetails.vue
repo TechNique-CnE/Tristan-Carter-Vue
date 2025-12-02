@@ -1,5 +1,5 @@
 <script setup>
-import { BiLogoGithub, BiLogoInstagramAlt, BiLogoMeta, BiLogoLinkedinSquare } from 'vue-icons-plus/bi';
+import SocialLinks from '../SocialLinks.vue';
 </script>
 
 <template>
@@ -17,20 +17,7 @@ import { BiLogoGithub, BiLogoInstagramAlt, BiLogoMeta, BiLogoLinkedinSquare } fr
         fully functional and beautiful products to clients.
       </p>
       <div class="social-links">
-        <div class="links">
-          <a href="https://www.linkedin.com/in/tristan27/" target="_blank">
-            <BiLogoLinkedinSquare />
-          </a>
-          <a href="https://github.com/Tristan2772" target="_blank">
-            <BiLogoGithub />
-          </a>
-          <a href="https://www.instagram.com/technique.cne/" target="_blank">
-            <BiLogoInstagramAlt />
-          </a>
-          <a href="https://www.facebook.com/TechNique.CnE/" target="_blank">
-            <BiLogoMeta />
-          </a>
-        </div>
+        <SocialLinks />
         <router-link to="/contact" class="contact-btn">Contact Me!</router-link>
       </div>
     </div>
@@ -82,33 +69,6 @@ import { BiLogoGithub, BiLogoInstagramAlt, BiLogoMeta, BiLogoLinkedinSquare } fr
   flex-direction: column;
   gap: var(--md-gap);
 
-  .links {
-    padding-top: var(--md-gap);
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--md-gap);
-
-    a {
-      width: 50px;
-      aspect-ratio: 1/1;
-      border: var(--border);
-      border-radius: 50%;
-      transition: ease-out 350ms;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--primary);
-    }
-    a:hover {
-      scale: 1.1;
-      color: black;
-      background-color: var(--primary);
-      box-shadow: var(--primary-shadow);
-      transition: var(--transition);
-    }
-  }
   .contact-btn {
     height: 50px;
     width: 150px;

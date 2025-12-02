@@ -1,4 +1,7 @@
-<script setup></script>
+<script setup>
+import SocialLinks from '../SocialLinks.vue';
+
+</script>
 
 <template>
   <section>
@@ -16,6 +19,7 @@
           experimental, I bring a genuine passion for building projects that are polished,
           puposeful, and built to last.
         </p>
+        <SocialLinks />
       </div>
     </div>
   </section>
