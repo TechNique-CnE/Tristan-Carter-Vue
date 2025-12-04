@@ -9,12 +9,10 @@ import SocialLinks from '../SocialLinks.vue';
       <h1>Hi, I'm Tristan<span> Carter.</span></h1>
       <h2>I am a <span id="change-text-animation">web developer.</span></h2>
       <p>
-        I enjoy producing customized solutions that extend the capabilities of small-medium
-        businesses.
+        I build custom solutions for small-medium businesses to help them grow their online presence.
       </p>
       <p>
-        I am passionate about contributing clean, accessible, and responsive code while delivering
-        fully functional and beautiful products to clients.
+        I provide everything from consulting to full-stack development, from advice to complete apps.
       </p>
       <div class="social-links">
         <SocialLinks />
@@ -57,6 +55,9 @@ import SocialLinks from '../SocialLinks.vue';
         color: var(--primary);
         font-family: var(--header-font);
       }
+    }
+    p:first-of-type {
+      padding-bottom: 5px;
     }
     p {
       padding-left: var(--sm-gap);

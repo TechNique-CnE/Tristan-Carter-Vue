@@ -34,6 +34,7 @@ const questions = jsonData.questions;
       details {
       border: 2px solid var(--accent);
       border-radius: 20px;
+      line-height: 1.5;
 
       summary {
         padding: var(--md-gap);
@@ -42,7 +43,7 @@ const questions = jsonData.questions;
 
       p {
 
-        padding: var(--md-gap) var(--xl-gap);
+        padding: var(--md-gap) var(--lg-gap);
       }
     }
     details:hover {

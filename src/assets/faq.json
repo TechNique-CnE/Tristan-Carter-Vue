@@ -1,20 +1,20 @@
 {
-  "questions" : [
+  "questions": [
     {
-      "q" : "My hours of communication",
-      "a" : "this is the answer to question numebr one"
+      "q": "What are your hours?",
+      "a": "As a freelance developer, my working hours may vary, but my hours of communication will always be 9am-5pm CST."
     },
     {
-      "q" : "this question numebr two",
-      "a" : "this is the answer to question numebr two"
+      "q": "What are all of your services?",
+      "a": "My services range from consulting to full-stack development. What does that include? Here's a list: advice, documentation, bug fixes, logo design, website design, content writing, SEO, performance optimization, continuous integration, deployments, full-stack development, etc. Heck, if a computer breaks while I'm there, I may even fix that too."
     },
     {
-      "q" : "this question numebr three",
-      "a" : "this is the answer to question numebr three"
+      "q": "Are you currently available for work?",
+      "a": "Yes, I am available for part-time, full-time, and contract work. If you'd like to hire me, waste no time at all and fill out the contact form!"
     },
     {
-      "q" : "this question numebr four",
-      "a" : "this is the answer to question numebr four"
+      "q": "Don't see your question?",
+      "a": "You can ask your question in the form and I will either contact you, add your question to the faq, or both."
     }
   ]
 }

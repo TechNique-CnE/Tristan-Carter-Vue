@@ -1,29 +1,31 @@
 <template>
 <div class="services-container">
   <div class="service-card">
-    <h3>Web Design</h3>
-    <p>Taking an idea or napkin sketch and designing a clean, modern, website out of it.</p>
-  </div>
-  <div class="service-card">
     <h3>Full-Stack Development</h3>
     <p>
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad molestias placeat deleniti,
-      nostrum itaque quas, praesentium numquam quia sit temporibus quos perspiciatis ipsam,
-      consequatur vero minus esse officiis! Eos, esse.
+      Full-stack development encompasses both front-end and back-end technologies. The front-end is all the elements
+      and interactions a user has with a website, including everything they see. The back-end is all the interactions
+      a website has with a server, like database calls and user authentification.
     </p>
   </div>
   <div class="service-card">
     <h3>SEO</h3>
     <p>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure voluptas totam ipsum
-      accusamus dignissimos explaining the service.
+      Search Engine Optimization (SEO) refers to the many practices and techniques that rank your website higher in
+      the list of search results when you look something up on Google or Bing.
     </p>
   </div>
   <div class="service-card">
-    <h3>This is a service</h3>
+    <h3>Consultation</h3>
     <p>
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure voluptas Lorem ipsum dolor
-      sit amet. totam ipsum accusamus dignissimos magnam explaining the service.
+      Consultation services for when you need advice on site maintenance, guidance with a new feature, or if you would
+      just like a third-party audit of your codebase.
+    </p>
+  </div>
+  <div class="service-card">
+    <h3>Web Performance Optimization</h3>
+    <p>The optimization of web performance, also known as core web vitals, is the process of reducing page load times by various means. This directly translates
+      to more conversions on the app and a better user experience for everybody.
     </p>
   </div>
 </div>
