@@ -1,4 +1,5 @@
 <script setup>
+import { Field, Form, ErrorMessage } from 'vee-validate';
 import { ref } from 'vue';
 import { CgSpinner } from "vue-icons-plus/cg";
 
@@ -10,6 +11,7 @@ const form = ref({
   message: '',
 })
 
+const formRef = ref(null)
 const loading = ref(false)
 const status = ref("")
 const toast = ref("")
@@ -32,11 +34,7 @@ async function submitForm() {
   if (data.status==='success') {
     toast.value = 'Message sent!'
     status.value = "success"
-    form.value.name = ''
-    form.value.email = ''
-    form.value.number = ''
-    form.value.subject = ''
-    form.value.message = ''
+    formRef.value.resetForm()
   } else {
     toast.value = "An error occured!"
     status.value = "error"
@@ -48,6 +46,63 @@ async function submitForm() {
   }, 5000);
 }
 
+function validateEmail(value) {
+  // if the field is empty
+  if (!value) {
+    return 'Required!';
+  }
+  // if the field is not a valid email
+  const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+  if (!regex.test(value)) {
+    return 'Invalid email!';
+  }
+  // All is good
+  return true;
+}
+
+function validatePhone(value) {
+  if (!value) {
+    return "Required"
+  }
+  const regex = /^\+?\d{0,3}\s?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}?/;
+  if (!regex.test(value)) {
+    return 'Invalid Phone!';
+  }
+ return true;
+}
+function validateName(value) {
+  if (!value) {
+    return "Required"
+  }
+  const regex = /[a-zA-Z\s]/;
+  if (!regex.test(value)) {
+    return 'Invalid Name!';
+  }
+ return true;
+}
+function validateText(value) {
+  if (!value) {
+    return "Required"
+  }
+  const regex = /[a-zA-Z\s0-9]/;
+  if (!regex.test(value)) {
+    return 'Invalid Subject!';
+  }
+ return true;
+}
+function validateMessage(value) {
+  if (!value) {
+    return "Required"
+  }
+  const regex = /[a-zA-Z\s0-9]/;
+  if (!regex.test(value)) {
+    return 'Invalid Subject!';
+  }
+ return true;
+}
+
+
+
 </script>
 
 <template>
@@ -55,23 +110,45 @@ async function submitForm() {
         <h2 class="heading">Contact</h2>
         <p>Have a Question? Check out the <RouterLink to="/faq">faq</RouterLink> first!</p>
 
-        <form method="post" name="contact-form" id="form-data">
+
+
+
+
+        <Form ref="formRef" @submit="submitForm" name="contact-form" id="form-data">
             <div id="input-group" >
               <div>
-                <input type="text" v-model="form.name" :disabled="loading" placeholder="Full Name" name="name">
-                <input type="email" v-model="form.email" :disabled="loading" placeholder="Email" name="email">
-                <input type="number" v-model="form.number" :disabled="loading" placeholder="Phone Number" name="number">
-                <input type="text" v-model="form.subject" :disabled="loading" placeholder="Subject" name="subject">
+                <label for="fName">*Full Name:
+                  <Field id="fName" name="name" type="text" v-model="form.name" :disabled="loading" placeholder="Full Name"  :rules="validateName"/>
+                  <ErrorMessage name="name" />
+                </label>
+                <label for="fEmail">*Email:
+                  <Field id="fEmail" name="email" type="email" v-model="form.email" :disabled="loading" placeholder="example@mail.com" :rules="validateEmail" />
+                  <ErrorMessage name="email" />
+                </label>
+                <label for="fNumber">*Phone Number:
+                  <Field id="fNumber" name="number" type="text" v-model="form.number" :disabled="loading" placeholder="(###) ###-####" :rules="validatePhone"/>
+                  <ErrorMessage name="number" />
+                </label>
+                <label for="fSubject">*Subject:
+                  <Field id="fSubject" name="subject" type="text" v-model="form.subject" :disabled="loading" placeholder="Subject" :rules="validateText" />
+                  <ErrorMessage name="subject" />
+                </label>
               </div>
               <div>
-                <textarea name="message" v-model="form.message" cols="30" rows="9" placeholder="Your Message"></textarea>
+                <label for="fMessage">*Message:
+                  <Field id="fMessage" as="textarea" name="message" v-model="form.message" :disabled="loading" cols="30" rows="9" placeholder="Your Message" :rules="validateMessage"/>
+                  <ErrorMessage name="message" />
+                </label>
               </div>
             </div>
             <div id="submission">
-                <button id="submit-btn" type="submit" :disabled="loading" @click="submitForm">Send Message</button>
+                <button id="submit-btn" type="submit" :disabled="loading">Send Message</button>
             </div>
+          </Form>
 
-          </form>
+
+
+
         </section>
         <teleport to="body"><div v-if="toast || loading" id="formToast" :class="{'error': status==='error', 'loading': loading}">
           <button v-if="!loading" @click="toast=''">X</button>
@@ -123,21 +200,38 @@ async function submitForm() {
   width: 45%;
 }
 
-#input-group input,
-#input-group textarea{
+#input-group div label{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: var(--md-gap) 0 0;
+}
+
+#input-group div label input,
+#input-group div label textarea{
+  width: 100%;
   background: var(--bg);
   border: 2px solid var(--primary);
   padding: var(--sm-gap);
   font-size: var(--fs-sm);
   color: var(--txt-color);
-  margin: var(--sm-gap) 0;
   border-radius: 15px;
-  resize: none;
+  /* resize: none; */
 }
 
-#input-group input:disabled,
-#input-group textarea:disabled {
+#input-group div label input:disabled,
+#input-group div label textarea:disabled {
   cursor: progress;
+}
+
+#input-group div label span{
+  text-align: left;
+  font-size: 16px;
+  color: red;
+  font-weight: bold;
+  padding-left: var(--sm-gap);
+  padding-top: 2px;
 }
 
 #submission {
